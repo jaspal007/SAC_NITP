@@ -21,7 +21,7 @@ class MyInfo extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
+    final height = MediaQuery.of(context).size.height - MediaQuery.of(context).padding.bottom;
     final width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(

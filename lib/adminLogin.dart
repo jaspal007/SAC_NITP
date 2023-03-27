@@ -26,7 +26,9 @@ class _AdminLoginState extends State<AdminLogin> {
   @override
   Widget build(BuildContext context) {
     final mainScreen = MediaQuery.of(context).size.height;
-    final height = mainScreen - MediaQuery.of(context).padding.bottom;
+    final keyboard = MediaQuery.of(context).viewInsets.bottom;
+    final height =
+        mainScreen - MediaQuery.of(context).padding.bottom - keyboard;
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -36,10 +38,10 @@ class _AdminLoginState extends State<AdminLogin> {
           width: MediaQuery.of(context).size.width,
           padding: const EdgeInsets.all(10),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
+              SizedBox(
                 height: height * 0.25,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -59,60 +61,61 @@ class _AdminLoginState extends State<AdminLogin> {
                   ],
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.all(10),
-                height: height * 0.25,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    TextFieldInput(
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(
+                      vertical: 10,
+                    ),
+                    child: TextFieldInput(
                       textEditingController: _username,
                       labelText: 'AdminName',
                       textInputType: TextInputType.emailAddress,
                     ),
-                    Stack(
-                      children: [
-                        TextFieldInput(
-                          textEditingController: _password,
-                          labelText: 'PassWord',
-                          isPass: _obscureText,
-                          textInputType: TextInputType.number,
-                        ),
-                        Positioned(
-                          right: 10,
-                          child: IconButton(
-                            onPressed: () {
-                              setState(() {
-                                _obscureText = !_obscureText;
-                              });
-                            },
-                            icon: (_obscureText)
-                                ? const Icon(Icons.visibility_off_outlined)
-                                : const Icon(Icons.visibility_outlined),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(
-                  vertical: 5,
-                  horizontal: 10,
-                ),
-                child: ElevatedButton(
-                  onPressed: () {
-                    (_username == 'admin' && _password == 123456)
-                        ? const MyHome()
-                        : null;
-                  },
-                  style: const ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(Colors.green),
                   ),
-                  child: const Text('Login'),
-                ),
+                  Stack(
+                    children: [
+                      TextFieldInput(
+                        textEditingController: _password,
+                        labelText: 'PassWord',
+                        isPass: _obscureText,
+                        textInputType: TextInputType.number,
+                      ),
+                      Positioned(
+                        right: 10,
+                        child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _obscureText = !_obscureText;
+                            });
+                          },
+                          icon: (_obscureText)
+                              ? const Icon(Icons.visibility_off_outlined)
+                              : const Icon(Icons.visibility_outlined),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    width: double.infinity,
+                    margin: const EdgeInsets.symmetric(
+                      vertical: 20,
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 5,
+                      horizontal: 10,
+                    ),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: const ButtonStyle(
+                        backgroundColor:
+                            MaterialStatePropertyAll(Colors.green),
+                      ),
+                      child: const Text('Login'),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
