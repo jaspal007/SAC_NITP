@@ -29,7 +29,7 @@ class MyCard extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) => const MyInfo(
-              game: "KABADDI",
+              game: "CRICKET",
               date: "20 March '23",
               time: "23:00",
               team1: "CSE1",
