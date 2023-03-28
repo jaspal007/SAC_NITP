@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sac_nitp/info.dart';
-import 'package:sac_nitp/adminLogin.dart';
+import 'package:sac_nitp/admin_login.dart';
 import 'home.dart';
+import 'global_variable.dart' as globals;
+
+globals.GlobalVariable _variable = globals.GlobalVariable();
 
 List<Widget> Pages = <Widget>[
   const MyHome(),
@@ -14,7 +17,7 @@ List<Widget> Pages = <Widget>[
     venue: "Open Air Theatre",
     remarks: "Do join us for the event",
   ),
-  AdminLogin(),
+  const AdminLogin(),
 ];
 int _currentIndex = 0;
 void main() {

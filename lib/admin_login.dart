@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:sac_nitp/home.dart';
 import 'package:sac_nitp/info.dart';
-import 'package:sac_nitp/sample.dart';
+import 'package:sac_nitp/admin.dart';
 import './utility/text_input.dart';
+import 'global_variable.dart' as globals;
+
+globals.GlobalVariable _variable = globals.GlobalVariable();
 
 class AdminLogin extends StatefulWidget {
   const AdminLogin({super.key});
@@ -107,10 +110,16 @@ class _AdminLoginState extends State<AdminLogin> {
                       horizontal: 10,
                     ),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const MyAdmin(),
+                          ),
+                        );
+                      },
                       style: const ButtonStyle(
-                        backgroundColor:
-                            MaterialStatePropertyAll(Colors.green),
+                        backgroundColor: MaterialStatePropertyAll(Colors.green),
                       ),
                       child: const Text('Login'),
                     ),

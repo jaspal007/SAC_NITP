@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
 import './resources/card.dart';
 import 'package:intl/intl.dart';
+import 'global_variable.dart' as globals;
+globals.GlobalVariable _variable = globals.GlobalVariable();
 
-// ignore: camel_case_types
 enum dates { yesterday, today, tommorow, custom }
-
 dates _item = dates.today;
 String custom = "Today";
 
-const List<String> games = <String>[
-  'All',
-  'BasketBall',
-  'Cricket',
-  'Kabaddi',
-  'FootBall'
-];
+List<String> games = _variable.getGames();
 String dropdownValue = games.first;
 
 class MyHome extends StatefulWidget {
