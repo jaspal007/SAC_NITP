@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "782637483348",
+    "project_id": "sacapplication-af649",
+    "storage_bucket": "sacapplication-af649.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:782637483348:android:a57fbcec0d365981f074c1",
+        "android_client_info": {
+          "package_name": "com.example.sac_nitp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "782637483348-vg9btgtakbut7lfa40mr62g4301ueprq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqr9o_FyC_nLVC59zkxKdl9T6MxunfuTs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "782637483348-vg9btgtakbut7lfa40mr62g4301ueprq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
