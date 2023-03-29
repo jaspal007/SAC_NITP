@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:sac_nitp/home.dart';
 import 'package:sac_nitp/info.dart';
 import 'package:sac_nitp/admin.dart';
+import 'package:sac_nitp/resources/auth_methods.dart';
+import 'package:sac_nitp/utils.dart';
 import './utility/text_input.dart';
 import 'global_variable.dart' as globals;
+import 'package:firebase_auth/firebase_auth.dart';
 
 globals.GlobalVariable _variable = globals.GlobalVariable();
 
@@ -18,12 +21,34 @@ class _AdminLoginState extends State<AdminLogin> {
   bool _obscureText = true;
   final TextEditingController _username = TextEditingController();
   final TextEditingController _password = TextEditingController();
-
+  bool _isLoading = false;
   @override
   void dispose() {
     super.dispose();
     _username.dispose();
     _password.dispose();
+  }
+
+  void loginUser() async {
+    setState(() {
+      _isLoading = true;
+    });
+    String res = await AuthMethods().loginUser(
+      email: _username.text,
+      password: _password.text,
+    );
+    if (res == "success") {
+Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => const admin(),
+        ),      
+      );
+    } else {
+      showSnackBar(res, context);
+    }
+    setState(() {
+      _isLoading = false;
+    });
   }
 
   @override
@@ -111,12 +136,7 @@ class _AdminLoginState extends State<AdminLogin> {
                     ),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const MyAdmin(),
-                          ),
-                        );
+                        loginUser();
                       },
                       style: const ButtonStyle(
                         backgroundColor: MaterialStatePropertyAll(Colors.green),

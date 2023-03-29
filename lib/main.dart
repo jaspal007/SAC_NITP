@@ -1,8 +1,10 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:sac_nitp/info.dart';
 import 'package:sac_nitp/admin_login.dart';
 import 'home.dart';
 import 'global_variable.dart' as globals;
+
 
 globals.GlobalVariable _variable = globals.GlobalVariable();
 
@@ -20,7 +22,9 @@ List<Widget> Pages = <Widget>[
   const AdminLogin(),
 ];
 int _currentIndex = 0;
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -64,7 +68,7 @@ class MyAppState extends State<MyApp> {
               ),
             ),
             BottomNavigationBarItem(
-              label: 'TCF',
+              label: 'tcf',
               icon: Icon(
                 Icons.star_border_outlined,
                 color: Colors.amber,
