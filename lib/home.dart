@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import './resources/card.dart';
 import 'package:intl/intl.dart';
 import 'global_variable.dart' as globals;
+
 globals.GlobalVariable _variable = globals.GlobalVariable();
 
 enum dates { yesterday, today, tommorow, custom }
+
 dates _item = dates.today;
+
+DateTime now = DateTime.now();
+final DateFormat format = DateFormat.MMMEd();
 String custom = "Today";
 
 List<String> games = _variable.getGames();
@@ -19,13 +24,9 @@ class MyHome extends StatefulWidget {
 
 class _MyHomeApp extends State<MyHome> {
   final _key1 = GlobalKey();
-  final _key2 = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
-    DateTime now = DateTime.now(); //.subtract(const Duration(days: 1));
-    final DateFormat format = DateFormat.yMMMMd('en_US');
-    String formatted = format.format(now);
     final mainScreen = MediaQuery.of(context).size.height;
     final height = mainScreen - MediaQuery.of(context).padding.bottom;
     void setDate(dates date) {
@@ -37,7 +38,7 @@ class _MyHomeApp extends State<MyHome> {
         } else if (date == dates.tommorow) {
           custom = 'Tommorow';
         } else if (date == dates.custom) {
-          custom = formatted;
+          custom = format.format(now);
         }
       });
     }
@@ -108,7 +109,6 @@ class _MyHomeApp extends State<MyHome> {
                       if (newDate == null) return;
                       setState(() {
                         now = newDate;
-                        formatted = format.format(now);
                       });
                       setDate(dates.custom);
                     },
@@ -151,6 +151,14 @@ class _MyHomeApp extends State<MyHome> {
               child: SizedBox(
                 height: height * 0.9,
                 child: SingleChildScrollView(
+                  // child: ListView.builder(
+                  //   itemCount: 1,
+                  //   itemBuilder: (context, index) {
+                  //     return ListTile(
+                  //       title: Text('Item $index'),
+                  //     );
+                  //   },
+                  // ),
                   child: Column(
                     children: const [
                       MyCard(

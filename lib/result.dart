@@ -1,7 +1,6 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:sac_nitp/result.dart';
 import 'package:sac_nitp/utility/text_input.dart';
 import 'global_variable.dart' as globals;
 
@@ -19,15 +18,15 @@ final DateFormat formatDate = DateFormat.MMMEd();
 String date = formatDate.format(dateTime);
 TimeOfDay timeOfDay = TimeOfDay.now();
 
-class MyAdmin extends StatefulWidget {
-  const MyAdmin({super.key});
+class MyResult extends StatefulWidget {
+  const MyResult({super.key});
 
   @override
-  State<StatefulWidget> createState() => _MyAdminState();
+  State<StatefulWidget> createState() => _MyResultState();
 }
 
-class _MyAdminState extends State<MyAdmin> {
-  final TextEditingController _venue = TextEditingController();
+class _MyResultState extends State<MyResult> {
+  final TextEditingController _result = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final mainScreen = MediaQuery.of(context).size.height;
@@ -48,7 +47,7 @@ class _MyAdminState extends State<MyAdmin> {
     @override
     void dispose() {
       super.dispose();
-      _venue.dispose();
+      _result.dispose();
     }
 
     return SafeArea(
@@ -217,8 +216,8 @@ class _MyAdminState extends State<MyAdmin> {
                 ],
               ),
               TextFieldInput(
-                textEditingController: _venue,
-                labelText: 'Venue',
+                textEditingController: _result,
+                labelText: 'Result',
                 textInputType: TextInputType.text,
               ),
               ElevatedButton(
@@ -228,13 +227,13 @@ class _MyAdminState extends State<MyAdmin> {
                       dropDownValue3!.isNotEmpty &&
                       date.isNotEmpty &&
                       time.isNotEmpty &&
-                      _venue.text.isNotEmpty) {
+                      _result.text.isNotEmpty) {
                     print('Game: $dropDownValue1');
                     print('Team1: $dropDownValue2');
                     print('Team2: $dropDownValue3');
                     print('Date: $date');
                     print('Time: $time');
-                    print('Venue: ${_venue.text}');
+                    print('Result: ${_result.text}');
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(

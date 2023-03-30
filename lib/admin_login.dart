@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sac_nitp/data.dart';
 import 'package:sac_nitp/home.dart';
 import 'package:sac_nitp/info.dart';
 import 'package:sac_nitp/admin.dart';
+import 'package:sac_nitp/result.dart';
 import './utility/text_input.dart';
 import 'global_variable.dart' as globals;
 
@@ -111,12 +113,19 @@ class _AdminLoginState extends State<AdminLogin> {
                     ),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const MyAdmin(),
-                          ),
-                        );
+                        if (_username.text == 'a' &&
+                            _password.text == '123') {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const MyData(),
+                            ),
+                          );
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Data Entry Error!')),
+                          );
+                        }
                       },
                       style: const ButtonStyle(
                         backgroundColor: MaterialStatePropertyAll(Colors.green),
