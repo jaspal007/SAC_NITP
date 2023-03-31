@@ -1,7 +1,11 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:sac_nitp/home.dart';
+import 'package:sac_nitp/utility/snackbar.dart';
 import 'package:sac_nitp/utility/text_input.dart';
+import 'package:uuid/uuid.dart';
+import 'firebase/firestore_methods.dart';
 import 'utility/global_variable.dart' as globals;
 
 globals.GlobalVariable _variable = globals.GlobalVariable();
@@ -42,6 +46,57 @@ class _MyResultState extends State<MyResult> {
       setState(() {
         date = formatDate.format(now);
       });
+    }
+
+    bool _isLoading = false;
+
+    void uploadResult() async {
+      setState(() {
+        _isLoading = true;
+      });
+      String res = 'success';
+
+      if (res == 'success') {
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => const MyHome()));
+      } else {
+        showSnackBar(res, context);
+      }
+      setState(() {
+        _isLoading = false;
+      });
+    }
+
+    String resultCardId = const Uuid().v1();
+    void postResultCard() async {
+      setState(() {
+        _isLoading = true;
+      });
+      try {
+        String res = await FirestoreMethods().uploadResultCard(
+          resultCardId,
+          dropDownValue1!,
+          dropDownValue2!,
+          dropDownValue3!,
+          date,
+          time,
+          _result.text,
+        );
+
+        if (res == "success") {
+          setState(() {
+            _isLoading = true;
+          });
+          showSnackBar('posted', context);
+        } else {
+          setState(() {
+            _isLoading = true;
+          });
+          showSnackBar(res, context);
+        }
+      } catch (e) {
+        showSnackBar(e.toString(), context);
+      }
     }
 
     @override
@@ -228,12 +283,7 @@ class _MyResultState extends State<MyResult> {
                       date.isNotEmpty &&
                       time.isNotEmpty &&
                       _result.text.isNotEmpty) {
-                    print('Game: $dropDownValue1');
-                    print('Team1: $dropDownValue2');
-                    print('Team2: $dropDownValue3');
-                    print('Date: $date');
-                    print('Time: $time');
-                    print('Result: ${_result.text}');
+                    postResultCard();
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(

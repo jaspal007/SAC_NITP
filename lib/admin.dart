@@ -1,8 +1,12 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:sac_nitp/home.dart';
 import 'package:sac_nitp/result.dart';
+import 'package:sac_nitp/utility/snackbar.dart';
 import 'package:sac_nitp/utility/text_input.dart';
+import 'package:uuid/uuid.dart';
+import 'firebase/firestore_methods.dart';
 import 'utility/global_variable.dart' as globals;
 
 globals.GlobalVariable _variable = globals.GlobalVariable();
@@ -28,23 +32,75 @@ class MyAdmin extends StatefulWidget {
 
 class _MyAdminState extends State<MyAdmin> {
   final TextEditingController _venue = TextEditingController();
+  bool _isLoading = false;
+
+
   @override
   Widget build(BuildContext context) {
-    final mainScreen = MediaQuery.of(context).size.height;
-    final height = mainScreen - MediaQuery.of(context).padding.bottom;
-    final hour = (timeOfDay.period == DayPeriod.am)
-        ? timeOfDay.hour
-        : timeOfDay.hour - 12;
+    final hour =
+        (timeOfDay.period == DayPeriod.am) ? timeOfDay.hour : timeOfDay.hour - 12;
     final minutes = timeOfDay.minute;
     final periodOfDay = (timeOfDay.period == DayPeriod.am) ? 'AM' : 'PM';
     final time =
         '${hour.toString().padLeft(2, '0')} : ${minutes.toString().padLeft(2, '0')} $periodOfDay';
+
+    final mainScreen = MediaQuery.of(context).size.height;
+    final height = mainScreen - MediaQuery.of(context).padding.bottom;
     void setDate(DateTime now) {
       setState(() {
         date = formatDate.format(now);
       });
     }
 
+    void uploadEvent() async {
+      setState(() {
+        _isLoading = true;
+      });
+      String res = 'success';
+
+      if (res == 'success') {
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => const MyHome()));
+      } else {
+        showSnackBar(res, context);
+      }
+      setState(() {
+        _isLoading = false;
+      });
+    }
+
+    String cardId = const Uuid().v1();
+    void postCard() async {
+      setState(() {
+        _isLoading = true;
+      });
+      try {
+        String res = await FirestoreMethods().uploadSportsCard(
+          cardId,
+          dropDownValue1!,
+          dropDownValue2!,
+          dropDownValue3!,
+          date,
+          time,
+          _venue.text,
+          'welcome',
+        );
+
+        if (res == "success") {
+          setState(() {
+            _isLoading = true;
+          });
+          showSnackBar('posted', context);
+        } else {
+          setState(() {
+            _isLoading = true;
+          });
+          showSnackBar(res, context);
+        }
+      } catch (e) {
+        showSnackBar(e.toString(), context);
+      }
+    }
     @override
     void dispose() {
       super.dispose();
@@ -229,12 +285,7 @@ class _MyAdminState extends State<MyAdmin> {
                       date.isNotEmpty &&
                       time.isNotEmpty &&
                       _venue.text.isNotEmpty) {
-                    print('Game: $dropDownValue1');
-                    print('Team1: $dropDownValue2');
-                    print('Team2: $dropDownValue3');
-                    print('Date: $date');
-                    print('Time: $time');
-                    print('Venue: ${_venue.text}');
+                    postCard();
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(

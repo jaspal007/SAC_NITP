@@ -2,20 +2,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:sac_nitp/info.dart';
 import 'package:sac_nitp/admin_login.dart';
+import 'package:sac_nitp/result_page.dart';
 import 'home.dart';
 
 // ignore: non_constant_identifier_names
 List<Widget> Pages = <Widget>[
   const MyHome(),
-  const MyInfo(
-    game: "KABADDI",
-    date: "20 March '23",
-    time: "23:00",
-    team1: "CSE1",
-    team2: "CSE2",
-    venue: "Open Air Theatre",
-    remarks: "Do join us for the event",
-  ),
+  const MyResHome(),
   const AdminLogin(),
 ];
 int _currentIndex = 0;
@@ -65,7 +58,7 @@ class MyAppState extends State<MyApp> {
               ),
             ),
             BottomNavigationBarItem(
-              label: 'TCF',
+              label: 'Results',
               icon: Icon(
                 Icons.star_border_outlined,
                 color: Colors.amber,

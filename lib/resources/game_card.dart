@@ -6,40 +6,40 @@ globals.GlobalVariable _variable = globals.GlobalVariable();
 
 Map<String, String> images = _variable.getImages();
 
-class MyCard extends StatelessWidget {
-  final String game;
-  final String team1;
-  final String team2;
-  final String date;
-  final String time;
-  final String venue;
-  final String remarks;
+class MyCard extends StatefulWidget {
+  final snap;
 
-  const MyCard({
-    Key? key,
-    required this.game,
-    required this.team1,
-    required this.team2,
-    required this.date,
-    required this.time,
-    required this.venue,
-    required this.remarks,
-  }) : super(key: key);
+  const MyCard({super.key, this.snap});
+
+  @override
+  State<MyCard> createState() => _MyCardState();
+}
+
+class _MyCardState extends State<MyCard> {
+  // final String cardId;
   @override
   Widget build(BuildContext context) {
+    String? cardId = widget.snap['postId'];
+    String? game = widget.snap['game'];
+    String? team1 = widget.snap['team1'];
+    String? team2 = widget.snap['team2'];
+    String? date = widget.snap['date'];
+    String? time = widget.snap['time'];
+    String? venue = widget.snap['venue'];
+    String? remarks = widget.snap['remarks'];
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const MyInfo(
-              game: "CRICKET",
-              date: "20 March '23",
-              time: "23:00",
-              team1: "CSE1",
-              team2: "CSE2",
-              venue: "Open Air Theatre",
-              remarks: "Do join us for the event",
+            builder: (context) => MyInfo(
+              game: game,
+              date: date!,
+              time: time!,
+              team1: team1,
+              team2: team2,
+              venue: venue,
+              remarks: remarks!,
             ),
           ),
         );
@@ -75,7 +75,7 @@ class MyCard extends StatelessWidget {
           children: [
             //name of the game
             Text(
-              game,
+              game!,
               style: const TextStyle(
                 fontSize: 40,
                 fontWeight: FontWeight.w900,
@@ -85,7 +85,7 @@ class MyCard extends StatelessWidget {
 
             //team 1 vs team2
             Text(
-              '$team1 V/S $team2',
+              '${team1!} V/S ${team2!}',
               style: const TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.w600,
@@ -108,12 +108,12 @@ class MyCard extends StatelessWidget {
                         const Icon(
                           Icons.calendar_month_outlined,
                           color: Colors.black87,
-                          size: 15,
+                          size: 20,
                         ),
                         Text(
                           ' $date',
                           style: const TextStyle(
-                            fontSize: 15,
+                            fontSize: 20,
                             fontWeight: FontWeight.w300,
                             color: Colors.black,
                           ),
@@ -126,16 +126,17 @@ class MyCard extends StatelessWidget {
                       right: 5,
                     ),
                     child: Row(
+                      mainAxisSize: MainAxisSize.max,
                       children: [
                         const Icon(
                           Icons.access_time,
                           color: Colors.black87,
-                          size: 15,
+                          size: 20,
                         ),
                         Text(
                           ' $time',
                           style: const TextStyle(
-                            fontSize: 15,
+                            fontSize: 20,
                             fontWeight: FontWeight.w300,
                             color: Colors.black,
                           ),
@@ -155,14 +156,14 @@ class MyCard extends StatelessWidget {
                 children: [
                   const Icon(
                     Icons.location_on_outlined,
-                    size: 15,
+                    size: 30,
                     color: Colors.black87,
                   ),
                   Text(
-                    venue,
+                    venue!,
                     style: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w300,
+                      fontSize: 30,
+                      fontWeight: FontWeight.w500,
                       color: Colors.black,
                     ),
                   ),
