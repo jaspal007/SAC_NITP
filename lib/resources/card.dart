@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-
 import 'package:sac_nitp/info.dart';
+import 'package:sac_nitp/utility/global_variable.dart' as globals;
+
+globals.GlobalVariable _variable = globals.GlobalVariable();
+
+Map<String, String> images = _variable.getImages();
 
 class MyCard extends StatelessWidget {
   final String game;
@@ -45,16 +49,16 @@ class MyCard extends StatelessWidget {
         height: MediaQuery.of(context).size.height * 0.26,
         padding: const EdgeInsets.all(10),
         margin: const EdgeInsets.all(10),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("lib/assets/space.jpg"),
-            opacity: 0.2,
+            image: AssetImage(images[game]!),
+            opacity: 0.1,
             fit: BoxFit.cover,
           ),
-          borderRadius: BorderRadius.all(
+          borderRadius: const BorderRadius.all(
             Radius.circular(20),
           ),
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
             colors: [
               Colors.white10,
               Colors.white30,

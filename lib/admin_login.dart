@@ -5,7 +5,7 @@ import 'package:sac_nitp/info.dart';
 import 'package:sac_nitp/admin.dart';
 import 'package:sac_nitp/result.dart';
 import './utility/text_input.dart';
-import 'global_variable.dart' as globals;
+import 'utility/global_variable.dart' as globals;
 
 globals.GlobalVariable _variable = globals.GlobalVariable();
 

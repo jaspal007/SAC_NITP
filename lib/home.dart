@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './resources/card.dart';
 import 'package:intl/intl.dart';
-import 'global_variable.dart' as globals;
+import 'utility/global_variable.dart' as globals;
 
 globals.GlobalVariable _variable = globals.GlobalVariable();
 
@@ -146,79 +146,79 @@ class _MyHomeApp extends State<MyHome> {
                 ],
               ),
             ),
-            Flexible(
-              flex: 1,
-              child: SizedBox(
-                height: height * 0.9,
-                child: SingleChildScrollView(
-                  // child: ListView.builder(
-                  //   itemCount: 1,
-                  //   itemBuilder: (context, index) {
-                  //     return ListTile(
-                  //       title: Text('Item $index'),
-                  //     );
-                  //   },
-                  // ),
-                  child: Column(
-                    children: const [
-                      MyCard(
-                        game: "KABADDI",
-                        date: "20 March '23",
-                        time: "23:00",
-                        team1: "CSE1",
-                        team2: "CSE2",
-                        venue: "Open Air Theatre",
-                        remarks: "Do join us for the event",
-                      ),
-                      MyCard(
-                        game: "KABADDI",
-                        date: "20 March '23",
-                        time: "23:00",
-                        team1: "CSE1",
-                        team2: "CSE2",
-                        venue: "Open Air Theatre",
-                        remarks: "Do join us for the event",
-                      ),
-                      MyCard(
-                        game: "KABADDI",
-                        date: "20 March '23",
-                        time: "23:00",
-                        team1: "CSE1",
-                        team2: "CSE2",
-                        venue: "Open Air Theatre",
-                        remarks: "Do join us for the event",
-                      ),
-                      MyCard(
-                        game: "KABADDI",
-                        date: "20 March '23",
-                        time: "23:00",
-                        team1: "CSE1",
-                        team2: "CSE2",
-                        venue: "Open Air Theatre",
-                        remarks: "Do join us for the event",
-                      ),
-                      MyCard(
-                        game: "KABADDI",
-                        date: "20 March '23",
-                        time: "23:00",
-                        team1: "CSE1",
-                        team2: "CSE2",
-                        venue: "Open Air Theatre",
-                        remarks: "Do join us for the event",
-                      ),
-                      MyCard(
-                        game: "KABADDI",
-                        date: "20 March '23",
-                        time: "23:00",
-                        team1: "CSE1",
-                        team2: "CSE2",
-                        venue: "Open Air Theatre",
-                        remarks: "Do join us for the event",
-                      ),
-                    ],
-                  ),
-                ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: 5,
+                itemBuilder: (context, index) {
+                  return const MyCard(
+                    game: "TABLE TENNIS",
+                    date: "20 March '23",
+                    time: "23:00",
+                    team1: "CSE1",
+                    team2: "CSE2",
+                    venue: "Open Air Theatre",
+                    remarks: "Do join us for the event",
+                  );
+                },
               ),
+              // child: Column(
+              //   children: const [
+              //     MyCard(
+              //       game: "KABADDI",
+              //       date: "20 March '23",
+              //       time: "23:00",
+              //       team1: "CSE1",
+              //       team2: "CSE2",
+              //       venue: "Open Air Theatre",
+              //       remarks: "Do join us for the event",
+              //     ),
+              //     MyCard(
+              //       game: "KABADDI",
+              //       date: "20 March '23",
+              //       time: "23:00",
+              //       team1: "CSE1",
+              //       team2: "CSE2",
+              //       venue: "Open Air Theatre",
+              //       remarks: "Do join us for the event",
+              //     ),
+              //     MyCard(
+              //       game: "KABADDI",
+              //       date: "20 March '23",
+              //       time: "23:00",
+              //       team1: "CSE1",
+              //       team2: "CSE2",
+              //       venue: "Open Air Theatre",
+              //       remarks: "Do join us for the event",
+              //     ),
+              //     MyCard(
+              //       game: "KABADDI",
+              //       date: "20 March '23",
+              //       time: "23:00",
+              //       team1: "CSE1",
+              //       team2: "CSE2",
+              //       venue: "Open Air Theatre",
+              //       remarks: "Do join us for the event",
+              //     ),
+              //     MyCard(
+              //       game: "KABADDI",
+              //       date: "20 March '23",
+              //       time: "23:00",
+              //       team1: "CSE1",
+              //       team2: "CSE2",
+              //       venue: "Open Air Theatre",
+              //       remarks: "Do join us for the event",
+              //     ),
+              //     MyCard(
+              //       game: "KABADDI",
+              //       date: "20 March '23",
+              //       time: "23:00",
+              //       team1: "CSE1",
+              //       team2: "CSE2",
+              //       venue: "Open Air Theatre",
+              //       remarks: "Do join us for the event",
+              //     ),
+              //   ],
+              // ),
             ),
           ],
         ),

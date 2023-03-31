@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "96262482663",
+    "project_id": "sac-nitp-b0bca",
+    "storage_bucket": "sac-nitp-b0bca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:96262482663:android:d83cb83915d3a7260cd042",
+        "android_client_info": {
+          "package_name": "com.example.sac_nitp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "96262482663-puhknck0vds1i0hjhitos27gh2i5e36g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDypvvmPgT5lxcD9u3GZ_MtACcSrFPu0mw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "96262482663-puhknck0vds1i0hjhitos27gh2i5e36g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

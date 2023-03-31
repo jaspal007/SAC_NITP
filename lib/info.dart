@@ -37,9 +37,10 @@ class MyInfo extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
+                height: 200,
                 width: width,
                 child: Image.asset(
-                  "lib/assets/space.jpg",
+                  "lib/assets/intramural_banner.jpg",
                   fit: BoxFit.cover,
                 ),
               ),

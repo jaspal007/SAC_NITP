@@ -2,7 +2,7 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:sac_nitp/utility/text_input.dart';
-import 'global_variable.dart' as globals;
+import 'utility/global_variable.dart' as globals;
 
 globals.GlobalVariable _variable = globals.GlobalVariable();
 
