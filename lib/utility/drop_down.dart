@@ -31,10 +31,10 @@ class MyDropDownState extends State<MyDropDown> {
         icon: Icon(
           icon,
         ),
-        iconEnabledColor: Colors.green,
+        iconEnabledColor: Colors.teal,
         underline: Container(
           height: 2,
-          color: Colors.green,
+          color: Colors.teal,
         ),
         hint: Text(
           hint,

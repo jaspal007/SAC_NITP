@@ -36,11 +36,11 @@ class _MyDataState extends State<MyData> {
               label: 'Match',
               icon: Icon(
                 Icons.sports_cricket_outlined,
-                color: Colors.green,
+                color: Colors.teal,
               ),
               activeIcon: Icon(
                 Icons.sports_cricket_rounded,
-                color: Colors.green,
+                color: Colors.teal,
               ),
             ),
             BottomNavigationBarItem(

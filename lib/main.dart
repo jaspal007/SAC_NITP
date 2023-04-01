@@ -1,8 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:sac_nitp/info.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sac_nitp/admin_login.dart';
 import 'package:sac_nitp/result_page.dart';
+import 'package:system_theme/system_theme.dart';
 import 'home.dart';
 
 // ignore: non_constant_identifier_names
@@ -15,8 +17,14 @@ int _currentIndex = 0;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]).then((value) {
+    runApp(const MyApp());
+  });
 }
+
+final dark = SystemTheme.isDarkMode;
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -32,13 +40,38 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
+      themeMode: ThemeMode.system,
+      theme: (SystemTheme.isDarkMode)
+          ? ThemeData(
+              brightness: Brightness.dark,
+              bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+                backgroundColor: Colors.black87,
+                selectedItemColor: Colors.teal,
+              ),
+              primarySwatch: Colors.teal,
+              textTheme: GoogleFonts.quicksandTextTheme(
+                const TextTheme(
+                  bodyLarge: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            )
+          : ThemeData(
+              bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+                backgroundColor: Colors.teal,
+                selectedItemColor: Colors.amber,
+              ),
+              primarySwatch: Colors.teal,
+              textTheme: GoogleFonts.quicksandTextTheme(
+                Theme.of(context).textTheme,
+              ),
+            ),
       home: Scaffold(
         body: Pages[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.black54,
           iconSize: 30,
-          fixedColor: Colors.white,
+          //fixedColor: Colors.pink,
           currentIndex: _currentIndex,
           onTap: (int index) {
             setState(() {
@@ -50,11 +83,11 @@ class MyAppState extends State<MyApp> {
               label: 'IntraMurals',
               icon: Icon(
                 Icons.sports_cricket_outlined,
-                color: Colors.green,
+                color: Colors.red,
               ),
               activeIcon: Icon(
                 Icons.sports_cricket_rounded,
-                color: Colors.green,
+                color: Colors.red,
               ),
             ),
             BottomNavigationBarItem(

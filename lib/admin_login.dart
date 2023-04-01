@@ -128,7 +128,7 @@ class _AdminLoginState extends State<AdminLogin> {
                         }
                       },
                       style: const ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll(Colors.green),
+                        backgroundColor: MaterialStatePropertyAll(Colors.teal),
                       ),
                       child: const Text('Login'),
                     ),

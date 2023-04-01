@@ -92,7 +92,7 @@ class _MyResHomeApp extends State<MyResHome> {
                               PopupMenuButton(
                                 icon: const Icon(
                                   Icons.sports_basketball,
-                                  color: Colors.green,
+                                  color: Colors.teal,
                                 ),
                                 initialValue: _item,
                                 onSelected: (dates date) {
@@ -135,7 +135,7 @@ class _MyResHomeApp extends State<MyResHome> {
                             ),
                             selectedIcon: const Icon(
                               Icons.sports_basketball,
-                              color: Colors.green,
+                              color: Colors.teal,
                             ),
                           ),
                           DropdownButton<String>(
@@ -143,10 +143,10 @@ class _MyResHomeApp extends State<MyResHome> {
                             icon: const Icon(
                               Icons.sports_baseball_rounded,
                             ),
-                            iconEnabledColor: Colors.green,
+                            iconEnabledColor: Colors.teal,
                             underline: Container(
                               height: 2,
-                              color: Colors.green,
+                              color: Colors.teal,
                             ),
                             value: dropdownValue,
                             onChanged: (String? values) {
@@ -200,7 +200,7 @@ class _MyResHomeApp extends State<MyResHome> {
                             PopupMenuButton(
                               icon: const Icon(
                                 Icons.sports_basketball,
-                                color: Colors.green,
+                                color: Colors.teal,
                               ),
                               initialValue: _item,
                               onSelected: (dates date) {
@@ -243,7 +243,7 @@ class _MyResHomeApp extends State<MyResHome> {
                           ),
                           selectedIcon: const Icon(
                             Icons.sports_basketball,
-                            color: Colors.green,
+                            color: Colors.teal,
                           ),
                         ),
                         DropdownButton<String>(
@@ -251,10 +251,10 @@ class _MyResHomeApp extends State<MyResHome> {
                           icon: const Icon(
                             Icons.sports_baseball_rounded,
                           ),
-                          iconEnabledColor: Colors.green,
+                          iconEnabledColor: Colors.teal,
                           underline: Container(
                             height: 2,
-                            color: Colors.green,
+                            color: Colors.teal,
                           ),
                           value: dropdownValue,
                           onChanged: (String? values) {

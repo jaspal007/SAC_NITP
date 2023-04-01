@@ -35,9 +35,11 @@ dependencies:
   firebase_core: ^2.9.0
   firebase_storage: ^11.1.0
   uuid: ^3.0.7
+  google_fonts: ^4.0.3
+  intl: ^0.17.0
+  system_theme: ^2.1.0
   flutter:
     sdk: flutter
-  intl: ^0.17.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0

@@ -22,7 +22,7 @@ class MyNav extends StatelessWidget {
             onPressed: ()=>2+3,
             icon: const Icon(
               Icons.home_filled,
-              color: Colors.green,
+              color: Colors.teal,
             ),
           ),
           IconButton(

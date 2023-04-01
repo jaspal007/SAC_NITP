@@ -20,18 +20,18 @@ class TextFieldInput extends StatelessWidget {
     // ignore: prefer_const_constructors
     final inputBorder = UnderlineInputBorder(
       borderSide: const BorderSide(
-        color: Colors.green,
+        color: Colors.teal,
       ),
     );
     return TextField(
-      cursorColor: Colors.green,
+      cursorColor: Colors.teal,
       controller: textEditingController,
       obscureText: isPass,
       decoration: InputDecoration(
         fillColor: Colors.red,
         labelText: labelText,
         labelStyle: const TextStyle(
-          color: Colors.green,
+          color: Colors.teal,
         ),
         hintText: hintText,
         border: inputBorder,

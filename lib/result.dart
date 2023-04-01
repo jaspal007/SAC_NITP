@@ -143,7 +143,7 @@ class _MyResultState extends State<MyResult> {
                   icon: const Icon(
                     Icons.sports_baseball_rounded,
                   ),
-                  iconEnabledColor: Colors.green,
+                  iconEnabledColor: Colors.teal,
                   hint: const Text('Game'),
                   items: games
                       .map(
@@ -171,7 +171,7 @@ class _MyResultState extends State<MyResult> {
                   icon: const Icon(
                     Icons.sports_baseball_rounded,
                   ),
-                  iconEnabledColor: Colors.green,
+                  iconEnabledColor: Colors.teal,
                   hint: const Text(
                     'Select Team 1',
                   ),
@@ -201,7 +201,7 @@ class _MyResultState extends State<MyResult> {
                   icon: const Icon(
                     Icons.sports_baseball_rounded,
                   ),
-                  iconEnabledColor: Colors.green,
+                  iconEnabledColor: Colors.teal,
                   hint: const Text(
                     'Select Team 2',
                   ),
@@ -249,7 +249,7 @@ class _MyResultState extends State<MyResult> {
                         },
                         icon: const Icon(
                           Icons.calendar_month_outlined,
-                          color: Colors.green,
+                          color: Colors.teal,
                         ),
                       ),
                     ],
@@ -273,7 +273,7 @@ class _MyResultState extends State<MyResult> {
                         },
                         icon: const Icon(
                           Icons.access_time_outlined,
-                          color: Colors.green,
+                          color: Colors.teal,
                         ),
                       ),
                     ],
@@ -303,7 +303,7 @@ class _MyResultState extends State<MyResult> {
                   }
                 },
                 style: const ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(Colors.green),
+                  backgroundColor: MaterialStatePropertyAll(Colors.teal),
                 ),
                 child: const Text(
                   'SUBMIT',
