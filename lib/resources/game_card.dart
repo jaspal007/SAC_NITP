@@ -62,8 +62,14 @@ class _MyCardState extends State<MyCard> {
           gradient: const LinearGradient(
             colors: [
               Colors.white10,
+              Colors.white10,
+              Colors.white10,
               Colors.white30,
               Colors.white70,
+              Colors.white,
+              Colors.white,
+              Colors.white,
+              Colors.white,
               Colors.white,
             ],
             begin: Alignment.centerRight,

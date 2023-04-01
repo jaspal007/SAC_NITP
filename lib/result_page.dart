@@ -11,11 +11,63 @@ enum dates { yesterday, today, tommorow, custom }
 dates _item = dates.today;
 
 DateTime now = DateTime.now();
+DateTime nowFilter = DateTime.now();
+final yesFilter = nowFilter.subtract(const Duration(days: 1));
+final tomFilter = nowFilter.add(const Duration(days: 1));
 final DateFormat format = DateFormat.MMMEd();
-String custom = "Today";
+String dateFilter = "Today";
 
 List<String> games = _variable.getGames();
 String dropdownValue = games.first;
+
+Stream setStream(String game, String date) {
+  if (game == 'ALL') {
+    if (date == 'Today') {
+      return FirebaseFirestore.instance
+          .collection('resultCard')
+          .where('date', isEqualTo: format.format(nowFilter))
+          .snapshots();
+    } else if (date == 'Yesterday') {
+      return FirebaseFirestore.instance
+          .collection('resultCard')
+          .where('date', isEqualTo: format.format(yesFilter))
+          .snapshots();
+    } else if (date == 'Tommorow') {
+      return FirebaseFirestore.instance
+          .collection('resultCard')
+          .where('date', isEqualTo: format.format(tomFilter))
+          .snapshots();
+    }
+    return FirebaseFirestore.instance
+        .collection('resultCard')
+        .where('date', isEqualTo: format.format(now))
+        .snapshots();
+  } else {
+    if (date == 'Today') {
+      return FirebaseFirestore.instance
+          .collection('resultCard')
+          .where('game', isEqualTo: game)
+          .where('date', isEqualTo: format.format(nowFilter))
+          .snapshots();
+    } else if (date == 'Yesterday') {
+      return FirebaseFirestore.instance
+          .collection('resultCard')
+          .where('game', isEqualTo: game)
+          .where('date', isEqualTo: format.format(yesFilter))
+          .snapshots();
+    } else if (date == 'Tommorow') {
+      return FirebaseFirestore.instance
+          .collection('resultCard')
+          .where('date', isEqualTo: format.format(tomFilter))
+          .snapshots();
+    }
+    return FirebaseFirestore.instance
+        .collection('resultCard')
+        .where('game', isEqualTo: game)
+        .where('date', isEqualTo: format.format(now))
+        .snapshots();
+  }
+}
 
 class MyResHome extends StatefulWidget {
   const MyResHome({super.key});
@@ -33,13 +85,13 @@ class _MyResHomeApp extends State<MyResHome> {
     void setDate(dates date) {
       setState(() {
         if (date == dates.yesterday) {
-          custom = 'Yesterday';
+          dateFilter = 'Yesterday';
         } else if (date == dates.today) {
-          custom = 'Today';
+          dateFilter = 'Today';
         } else if (date == dates.tommorow) {
-          custom = 'Tommorow';
+          dateFilter = 'Tommorow';
         } else if (date == dates.custom) {
-          custom = format.format(now);
+          dateFilter = format.format(now);
         }
       });
     }
@@ -54,14 +106,7 @@ class _MyResHomeApp extends State<MyResHome> {
           ),
         ),
         body: StreamBuilder(
-            stream: dropdownValue == 'ALL'
-                ? FirebaseFirestore.instance
-                    .collection('resultCard')
-                    .snapshots()
-                : FirebaseFirestore.instance
-                    .collection('resultCard')
-                    .where('game', isEqualTo: dropdownValue)
-                    .snapshots(),
+            stream: setStream(dropdownValue, dateFilter),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(
@@ -84,7 +129,7 @@ class _MyResHomeApp extends State<MyResHome> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Text(
-                                custom,
+                                dateFilter,
                                 style: const TextStyle(
                                   fontSize: 20,
                                 ),
@@ -192,7 +237,7 @@ class _MyResHomeApp extends State<MyResHome> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Text(
-                              custom,
+                              dateFilter,
                               style: const TextStyle(
                                 fontSize: 20,
                               ),
@@ -272,6 +317,9 @@ class _MyResHomeApp extends State<MyResHome> {
                         ),
                       ],
                     ),
+                  ),
+                  const Expanded(
+                    child: Text('No Data Found!!!'),
                   ),
                 ],
               );

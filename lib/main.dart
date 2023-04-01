@@ -13,6 +13,22 @@ List<Widget> Pages = <Widget>[
   const MyResHome(),
   const AdminLogin(),
 ];
+
+ThemeData darkTheme = ThemeData(
+  brightness: Brightness.dark,
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    backgroundColor: Colors.black87,
+    selectedItemColor: Colors.teal,
+  ),
+  primarySwatch: Colors.teal,
+  textTheme: GoogleFonts.quicksandTextTheme(
+    const TextTheme(
+      bodyLarge: TextStyle(
+        color: Colors.white,
+      ),
+    ),
+  ),
+);
 int _currentIndex = 0;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,8 +39,6 @@ void main() async {
     runApp(const MyApp());
   });
 }
-
-final dark = SystemTheme.isDarkMode;
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -41,32 +55,17 @@ class MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
-      theme: (SystemTheme.isDarkMode)
-          ? ThemeData(
-              brightness: Brightness.dark,
-              bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-                backgroundColor: Colors.black87,
-                selectedItemColor: Colors.teal,
-              ),
-              primarySwatch: Colors.teal,
-              textTheme: GoogleFonts.quicksandTextTheme(
-                const TextTheme(
-                  bodyLarge: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            )
-          : ThemeData(
-              bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-                backgroundColor: Colors.teal,
-                selectedItemColor: Colors.amber,
-              ),
-              primarySwatch: Colors.teal,
-              textTheme: GoogleFonts.quicksandTextTheme(
-                Theme.of(context).textTheme,
-              ),
-            ),
+      darkTheme: darkTheme,
+      theme: ThemeData(
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          backgroundColor: Colors.teal,
+          selectedItemColor: Colors.amber,
+        ),
+        primarySwatch: Colors.teal,
+        textTheme: GoogleFonts.quicksandTextTheme(
+          Theme.of(context).textTheme,
+        ),
+      ),
       home: Scaffold(
         body: Pages[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
