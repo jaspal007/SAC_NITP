@@ -62,14 +62,14 @@ class MyInfo extends StatelessWidget {
                   Text(
                     '$team1 V/S $team2',
                     style: const TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w600,
+                      fontSize: 40,
+                      fontWeight: FontWeight.w500,
                       color: Colors.white,
                     ),
                   ),
 
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Container(
                         padding: const EdgeInsets.only(
@@ -83,12 +83,12 @@ class MyInfo extends StatelessWidget {
                             const Icon(
                               Icons.calendar_month_outlined,
                               color: Colors.white,
-                              size: 15,
+                              size: 30,
                             ),
                             Text(
                               ' $date',
                               style: const TextStyle(
-                                fontSize: 15,
+                                fontSize: 30,
                                 fontWeight: FontWeight.w300,
                                 color: Colors.white,
                               ),
@@ -108,12 +108,12 @@ class MyInfo extends StatelessWidget {
                             const Icon(
                               Icons.access_time,
                               color: Colors.white,
-                              size: 15,
+                              size: 30,
                             ),
                             Text(
                               ' $time',
                               style: const TextStyle(
-                                fontSize: 15,
+                                fontSize: 30,
                                 fontWeight: FontWeight.w300,
                                 color: Colors.white,
                               ),
@@ -134,13 +134,13 @@ class MyInfo extends StatelessWidget {
                       children: [
                         const Icon(
                           Icons.location_on_outlined,
-                          size: 15,
+                          size: 30,
                           color: Colors.white,
                         ),
                         Text(
                           venue,
                           style: const TextStyle(
-                            fontSize: 15,
+                            fontSize: 30,
                             fontWeight: FontWeight.w300,
                             color: Colors.white,
                           ),

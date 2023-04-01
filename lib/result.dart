@@ -31,6 +31,11 @@ class MyResult extends StatefulWidget {
 
 class _MyResultState extends State<MyResult> {
   final TextEditingController _result = TextEditingController();
+  final TextEditingController _game = TextEditingController();
+  final TextEditingController _team1 = TextEditingController();
+  final TextEditingController _team2 = TextEditingController();
+  final TextEditingController _date = TextEditingController();
+  final TextEditingController _time = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final mainScreen = MediaQuery.of(context).size.height;
@@ -102,6 +107,11 @@ class _MyResultState extends State<MyResult> {
     @override
     void dispose() {
       super.dispose();
+      _game.dispose();
+      _team1.dispose();
+      _team2.dispose();
+      _date.dispose();
+      _time.dispose();
       _result.dispose();
     }
 

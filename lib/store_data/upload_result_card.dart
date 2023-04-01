@@ -34,8 +34,8 @@ class ResultCard {
     var snapshot = snap.data() as Map<String, dynamic>;
 
     return ResultCard(
-      game: snapshot['game'],
       resultCardId: snapshot['resultCardId'],
+      game: snapshot['game'],
       team1: snapshot['team1'],
       team2: snapshot['team2'],
       date: snapshot['date'],

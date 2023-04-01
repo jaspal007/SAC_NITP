@@ -94,6 +94,7 @@ class _MyCardState extends State<MyCard> {
             ),
 
             Container(
+              width: double.infinity,
               padding: const EdgeInsets.symmetric(
                 vertical: 5,
               ),
@@ -101,7 +102,7 @@ class _MyCardState extends State<MyCard> {
                 children: [
                   Container(
                     padding: const EdgeInsets.only(
-                      right: 5,
+                      right: 10,
                     ),
                     child: Row(
                       children: [
@@ -123,7 +124,7 @@ class _MyCardState extends State<MyCard> {
                   ),
                   Container(
                     padding: const EdgeInsets.only(
-                      right: 5,
+                      right: 10,
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,

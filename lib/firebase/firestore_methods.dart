@@ -1,11 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:sac_nitp/resources/result_card.dart';
 import '../store_data/upload_card.dart';
 import '../store_data/upload_result_card.dart';
-import 'storage_methods.dart';
-import 'package:sac_nitp/resources/game_card.dart';
 import 'package:uuid/uuid.dart';
 
 class FirestoreMethods {

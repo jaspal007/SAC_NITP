@@ -32,18 +32,22 @@ class MyAdmin extends StatefulWidget {
 
 class _MyAdminState extends State<MyAdmin> {
   final TextEditingController _venue = TextEditingController();
+  final TextEditingController _game = TextEditingController();
+  final TextEditingController _team1 = TextEditingController();
+  final TextEditingController _team2 = TextEditingController();
+  final TextEditingController _date = TextEditingController();
+  final TextEditingController _time = TextEditingController();
   bool _isLoading = false;
 
 
   @override
   Widget build(BuildContext context) {
-    final hour =
-        (timeOfDay.period == DayPeriod.am) ? timeOfDay.hour : timeOfDay.hour - 12;
-    final minutes = timeOfDay.minute;
-    final periodOfDay = (timeOfDay.period == DayPeriod.am) ? 'AM' : 'PM';
-    final time =
-        '${hour.toString().padLeft(2, '0')} : ${minutes.toString().padLeft(2, '0')} $periodOfDay';
-
+  final hour =
+      (timeOfDay.period == DayPeriod.am) ? timeOfDay.hour : timeOfDay.hour - 12;
+  final minutes = timeOfDay.minute;
+  final periodOfDay = (timeOfDay.period == DayPeriod.am) ? 'AM' : 'PM';
+  final time =
+      '${hour.toString().padLeft(2, '0')} : ${minutes.toString().padLeft(2, '0')} $periodOfDay';
     final mainScreen = MediaQuery.of(context).size.height;
     final height = mainScreen - MediaQuery.of(context).padding.bottom;
     void setDate(DateTime now) {
@@ -105,6 +109,11 @@ class _MyAdminState extends State<MyAdmin> {
     void dispose() {
       super.dispose();
       _venue.dispose();
+      _game.dispose();
+      _team1.dispose();
+      _team2.dispose();
+      _date.dispose();
+      _time.dispose();
     }
 
     return SafeArea(
