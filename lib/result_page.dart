@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sac_nitp/resources/result_card.dart';
 import 'package:intl/intl.dart';
+import 'package:sac_nitp/scorecard.dart';
 import 'utility/global_variable.dart' as globals;
 
 globals.GlobalVariable _variable = globals.GlobalVariable();
@@ -325,6 +326,21 @@ class _MyResHomeApp extends State<MyResHome> {
                 ],
               );
             }),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const MyScoreCard(),
+              ),
+            );
+          },
+          backgroundColor: Colors.teal,
+          tooltip: 'ScoreBoard',
+          elevation: 10,
+          splashColor: Colors.amber,
+          child: const Icon(Icons.table_chart),
+        ),
       ),
     );
   }
