@@ -2,7 +2,7 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:sac_nitp/home.dart';
-import 'package:sac_nitp/result.dart';
+import 'package:sac_nitp/main.dart';
 import 'package:sac_nitp/utility/snackbar.dart';
 import 'package:sac_nitp/utility/text_input.dart';
 import 'package:uuid/uuid.dart';
@@ -37,17 +37,29 @@ class _MyAdminState extends State<MyAdmin> {
   final TextEditingController _team2 = TextEditingController();
   final TextEditingController _date = TextEditingController();
   final TextEditingController _time = TextEditingController();
+  final TextEditingController _remarks = TextEditingController();
   bool _isLoading = false;
 
+  void clearFields() {
+    setState(() {
+      dropDownValue1 = null;
+      dropDownValue2 = null;
+      dropDownValue3 = null;
+      date = format.format(DateTime.now());
+      _venue.clear();
+      _remarks.clear();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-  final hour =
-      (timeOfDay.period == DayPeriod.am) ? timeOfDay.hour : timeOfDay.hour - 12;
-  final minutes = timeOfDay.minute;
-  final periodOfDay = (timeOfDay.period == DayPeriod.am) ? 'AM' : 'PM';
-  final time =
-      '${hour.toString().padLeft(2, '0')} : ${minutes.toString().padLeft(2, '0')} $periodOfDay';
+    final hour = (timeOfDay.period == DayPeriod.am)
+        ? timeOfDay.hour
+        : timeOfDay.hour - 12;
+    final minutes = timeOfDay.minute;
+    final periodOfDay = (timeOfDay.period == DayPeriod.am) ? 'AM' : 'PM';
+    final time =
+        '${hour.toString().padLeft(2, '0')} : ${minutes.toString().padLeft(2, '0')} $periodOfDay';
     final mainScreen = MediaQuery.of(context).size.height;
     final height = mainScreen - MediaQuery.of(context).padding.bottom;
     void setDate(DateTime now) {
@@ -87,7 +99,7 @@ class _MyAdminState extends State<MyAdmin> {
           date,
           time,
           _venue.text,
-          'welcome',
+          _remarks.text = (_remarks.text.isEmpty) ? 'Welcome' : _remarks.text,
         );
 
         if (res == "success") {
@@ -95,6 +107,7 @@ class _MyAdminState extends State<MyAdmin> {
             _isLoading = true;
           });
           showSnackBar('posted', context);
+          clearFields();
         } else {
           setState(() {
             _isLoading = true;
@@ -105,6 +118,7 @@ class _MyAdminState extends State<MyAdmin> {
         showSnackBar(e.toString(), context);
       }
     }
+
     @override
     void dispose() {
       super.dispose();
@@ -286,6 +300,11 @@ class _MyAdminState extends State<MyAdmin> {
                 labelText: 'Venue',
                 textInputType: TextInputType.text,
               ),
+              TextFieldInput(
+                textEditingController: _remarks,
+                labelText: 'Remarks',
+                textInputType: TextInputType.text,
+              ),
               ElevatedButton(
                 onPressed: () {
                   if (dropDownValue1!.isNotEmpty &&
@@ -308,6 +327,22 @@ class _MyAdminState extends State<MyAdmin> {
                 ),
                 child: const Text(
                   'SUBMIT',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MyApp(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  'LOGOUT',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   ),

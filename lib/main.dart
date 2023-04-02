@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sac_nitp/admin_login.dart';
 import 'package:sac_nitp/result_page.dart';
-import 'package:system_theme/system_theme.dart';
 import 'home.dart';
 
 // ignore: non_constant_identifier_names

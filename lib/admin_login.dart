@@ -1,13 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sac_nitp/data.dart';
-import 'package:sac_nitp/home.dart';
-import 'package:sac_nitp/info.dart';
-import 'package:sac_nitp/admin.dart';
-import 'package:sac_nitp/result.dart';
 import './utility/text_input.dart';
 import 'utility/global_variable.dart' as globals;
 
 globals.GlobalVariable _variable = globals.GlobalVariable();
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class AdminLogin extends StatefulWidget {
   const AdminLogin({super.key});
@@ -52,8 +50,8 @@ class _AdminLoginState extends State<AdminLogin> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: const [
                     CircleAvatar(
-                      backgroundImage: AssetImage("lib/assets/profile.jpg"),
-                      maxRadius: 50,
+                      backgroundImage: AssetImage("lib/assets/sac_nitp.jpg"),
+                      maxRadius: 80,
                       minRadius: 30,
                     ),
                     Text(
@@ -112,19 +110,33 @@ class _AdminLoginState extends State<AdminLogin> {
                       horizontal: 10,
                     ),
                     child: ElevatedButton(
-                      onPressed: () {
-                        if (_username.text == 'a' &&
-                            _password.text == '123') {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const MyData(),
-                            ),
+                      onPressed: () async {
+                        if (_username.text.isNotEmpty &&
+                            _password.text.isNotEmpty) {
+                          final UserCredential userCredential =
+                              await _auth.signInWithEmailAndPassword(
+                            email: _username.text,
+                            password: _password.text,
                           );
-                        } else {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Data Entry Error!')),
-                          );
+
+                          // Check if the login was successful
+                          if (userCredential.user != null) {
+                            // ignore: use_build_context_synchronously
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MyData(),
+                              ),
+                            );
+                          } else {
+                            // Show an error message
+                            // ignore: use_build_context_synchronously
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Invalid email or password'),
+                              ),
+                            );
+                          }
                         }
                       },
                       style: const ButtonStyle(

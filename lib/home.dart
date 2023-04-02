@@ -120,6 +120,7 @@ class _MyHomeApp extends State<MyHome> {
                 child: Text('No data found.'),
               );
             }
+            
             if (snapshot.hasData) {
               var documents = snapshot.data!.docs;
               return Column(

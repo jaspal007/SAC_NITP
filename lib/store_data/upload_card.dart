@@ -12,7 +12,7 @@ class SportsCard {
   final String remarks;
 
   const SportsCard({
-    required this.remarks,
+    this.remarks = 'Welcome',
     required this.cardId,
     required this.game,
     required this.date,

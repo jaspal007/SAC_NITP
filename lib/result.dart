@@ -6,6 +6,7 @@ import 'package:sac_nitp/utility/snackbar.dart';
 import 'package:sac_nitp/utility/text_input.dart';
 import 'package:uuid/uuid.dart';
 import 'firebase/firestore_methods.dart';
+import 'main.dart';
 import 'utility/global_variable.dart' as globals;
 
 globals.GlobalVariable _variable = globals.GlobalVariable();
@@ -36,6 +37,17 @@ class _MyResultState extends State<MyResult> {
   final TextEditingController _team2 = TextEditingController();
   final TextEditingController _date = TextEditingController();
   final TextEditingController _time = TextEditingController();
+
+  void clearFields() {
+    setState(() {
+      dropDownValue1 = null;
+      dropDownValue2 = null;
+      dropDownValue3 = null;
+      date = format.format(DateTime.now());
+      _result.clear();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final mainScreen = MediaQuery.of(context).size.height;
@@ -93,6 +105,7 @@ class _MyResultState extends State<MyResult> {
             _isLoading = true;
           });
           showSnackBar('posted', context);
+          clearFields();
         } else {
           setState(() {
             _isLoading = true;
@@ -307,6 +320,22 @@ class _MyResultState extends State<MyResult> {
                 ),
                 child: const Text(
                   'SUBMIT',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MyApp(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  'LOGOUT',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   ),

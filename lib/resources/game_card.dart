@@ -94,7 +94,7 @@ class _MyCardState extends State<MyCard> {
 
             //team 1 vs team2
             Text(
-              '${team1!} V/S ${team2!}',
+              '${team1!} v/s ${team2!}',
               style: GoogleFonts.titilliumWeb(
                 textStyle: const TextStyle(
                   fontSize: 25,
