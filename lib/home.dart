@@ -60,6 +60,7 @@ Stream setStream(String game, String date) {
     } else if (date == 'Tommorow') {
       return FirebaseFirestore.instance
           .collection('sportsCard')
+          .where('game', isEqualTo: game)
           .where('date', isEqualTo: format.format(tomFilter))
           .snapshots();
     }
@@ -84,6 +85,7 @@ class _MyHomeApp extends State<MyHome> {
   Widget build(BuildContext context) {
     final mainScreen = MediaQuery.of(context).size.height;
     final height = mainScreen - MediaQuery.of(context).padding.bottom;
+    final width = MediaQuery.of(context).size.width;
     void setDate(dates date) {
       setState(() {
         if (date == dates.yesterday) {
@@ -120,7 +122,7 @@ class _MyHomeApp extends State<MyHome> {
                 child: Text('No data found.'),
               );
             }
-            
+
             if (snapshot.hasData) {
               var documents = snapshot.data!.docs;
               return Column(
@@ -132,9 +134,10 @@ class _MyHomeApp extends State<MyHome> {
                     key: _key1,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
                               dateFilter,
@@ -191,29 +194,33 @@ class _MyHomeApp extends State<MyHome> {
                             color: Colors.teal,
                           ),
                         ),
-                        DropdownButton<String>(
-                          menuMaxHeight: 150,
-                          icon: const Icon(
-                            Icons.sports_baseball_rounded,
+                        Container(
+                          child: DropdownButton<String>(
+                            isDense: true,
+                            menuMaxHeight: 150,
+                            icon: const Icon(
+                              Icons.sports_baseball_rounded,
+                            ),
+                            iconEnabledColor: Colors.teal,
+                            underline: Container(
+                              height: 2,
+                              color: Colors.teal,
+                            ),
+                            value: dropdownValue,
+                            onChanged: (String? values) {
+                              setState(() {
+                                dropdownValue = values!;
+                              });
+                            },
+                            items: games
+                                .map<DropdownMenuItem<String>>((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value,
+                                    overflow: TextOverflow.ellipsis),
+                              );
+                            }).toList(),
                           ),
-                          iconEnabledColor: Colors.teal,
-                          underline: Container(
-                            height: 2,
-                            color: Colors.teal,
-                          ),
-                          value: dropdownValue,
-                          onChanged: (String? values) {
-                            setState(() {
-                              dropdownValue = values!;
-                            });
-                          },
-                          items: games
-                              .map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
                         ),
                       ],
                     ),

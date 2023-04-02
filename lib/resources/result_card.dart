@@ -41,8 +41,14 @@ class _MyResCardState extends State<MyResCard> {
         gradient: const LinearGradient(
           colors: [
             Colors.white10,
+            Colors.white10,
+            Colors.white10,
             Colors.white30,
             Colors.white70,
+            Colors.white,
+            Colors.white,
+            Colors.white,
+            Colors.white,
             Colors.white,
           ],
           begin: Alignment.centerRight,
@@ -58,7 +64,7 @@ class _MyResCardState extends State<MyResCard> {
             game!,
             style: GoogleFonts.kanit(
               textStyle: const TextStyle(
-                fontSize: 40,
+                fontSize: 38,
                 fontWeight: FontWeight.w900,
                 color: Colors.black,
               ),
@@ -70,7 +76,7 @@ class _MyResCardState extends State<MyResCard> {
             '${team1!} V/S ${team2!}',
             style: GoogleFonts.titilliumWeb(
               textStyle: const TextStyle(
-                fontSize: 25,
+                fontSize: 24,
                 fontWeight: FontWeight.w700,
                 color: Colors.black,
               ),

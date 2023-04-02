@@ -47,12 +47,12 @@ class _AdminLoginState extends State<AdminLogin> {
               SizedBox(
                 height: height * 0.25,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
                     CircleAvatar(
                       backgroundImage: AssetImage("lib/assets/sac_nitp.jpg"),
-                      maxRadius: 80,
-                      minRadius: 30,
+                      maxRadius: 65,
+                      minRadius: 20,
                     ),
                     Text(
                       'Admin Login',

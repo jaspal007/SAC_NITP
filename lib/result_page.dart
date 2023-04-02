@@ -58,6 +58,7 @@ Stream setStream(String game, String date) {
     } else if (date == 'Tommorow') {
       return FirebaseFirestore.instance
           .collection('resultCard')
+          .where('game', isEqualTo: game)
           .where('date', isEqualTo: format.format(tomFilter))
           .snapshots();
     }

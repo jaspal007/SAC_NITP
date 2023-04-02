@@ -79,13 +79,14 @@ class _MyCardState extends State<MyCard> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
             //name of the game
             Text(
               game!,
               style: GoogleFonts.kanit(
                 textStyle: const TextStyle(
-                  fontSize: 40,
+                  fontSize: 38,
                   fontWeight: FontWeight.w900,
                   color: Colors.black,
                 ),
@@ -97,7 +98,7 @@ class _MyCardState extends State<MyCard> {
               '${team1!} v/s ${team2!}',
               style: GoogleFonts.titilliumWeb(
                 textStyle: const TextStyle(
-                  fontSize: 25,
+                  fontSize: 24,
                   fontWeight: FontWeight.w700,
                   color: Colors.black,
                 ),
