@@ -40,6 +40,8 @@ class _MyAdminState extends State<MyAdmin> {
   final TextEditingController _remarks = TextEditingController();
   bool _isLoading = false;
 
+  late OverlayEntry entry;
+
   void clearFields() {
     setState(() {
       dropDownValue1 = null;
