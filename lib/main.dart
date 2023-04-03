@@ -67,7 +67,7 @@ class MyAppState extends State<MyApp> {
       ),
       home: AnimatedSplashScreen(
         splashIconSize: 300,
-        duration: 2000,
+        duration: 500,
         splash: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

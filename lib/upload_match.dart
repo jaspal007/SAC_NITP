@@ -1,17 +1,12 @@
-import 'dart:io';
-import 'dart:typed_data';
-
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:sac_nitp/intramurals.dart';
-import 'package:sac_nitp/resources/image_picker.dart';
+import 'package:sac_nitp/main.dart';
 import 'package:sac_nitp/utility/snackbar.dart';
 import 'package:sac_nitp/utility/text_input.dart';
 import 'package:uuid/uuid.dart';
 import 'firebase/firestore_methods.dart';
-import 'main.dart';
-import 'package:image_picker/image_picker.dart';
 import 'utility/global_variable.dart' as globals;
 
 globals.GlobalVariable _variable = globals.GlobalVariable();
@@ -28,30 +23,24 @@ final DateFormat formatDate = DateFormat.MMMEd();
 String date = formatDate.format(dateTime);
 TimeOfDay timeOfDay = TimeOfDay.now();
 
-class MyResult extends StatefulWidget {
-  const MyResult({super.key});
+class MyAdmin extends StatefulWidget {
+  const MyAdmin({super.key});
 
   @override
-  State<StatefulWidget> createState() => _MyResultState();
+  State<StatefulWidget> createState() => _MyAdminState();
 }
 
-class _MyResultState extends State<MyResult> {
-  final TextEditingController _result = TextEditingController();
+class _MyAdminState extends State<MyAdmin> {
+  final TextEditingController _venue = TextEditingController();
   final TextEditingController _game = TextEditingController();
   final TextEditingController _team1 = TextEditingController();
   final TextEditingController _team2 = TextEditingController();
   final TextEditingController _date = TextEditingController();
   final TextEditingController _time = TextEditingController();
+  final TextEditingController _remarks = TextEditingController();
+  bool _isLoading = false;
 
-  ImagePicker imagePicker = ImagePicker();
-  Uint8List? _image;
-
-  void selectImage() async {
-    Uint8List image = await pickImage(ImageSource.gallery);
-    setState(() {
-      _image = image;
-    });
-  }
+  late OverlayEntry entry;
 
   void clearFields() {
     setState(() {
@@ -59,14 +48,13 @@ class _MyResultState extends State<MyResult> {
       dropDownValue2 = null;
       dropDownValue3 = null;
       date = format.format(DateTime.now());
-      _result.clear();
+      _venue.clear();
+      _remarks.clear();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final mainScreen = MediaQuery.of(context).size.height;
-    final height = mainScreen - MediaQuery.of(context).padding.bottom;
     final hour = (timeOfDay.period == DayPeriod.am)
         ? timeOfDay.hour
         : timeOfDay.hour - 12;
@@ -74,15 +62,15 @@ class _MyResultState extends State<MyResult> {
     final periodOfDay = (timeOfDay.period == DayPeriod.am) ? 'AM' : 'PM';
     final time =
         '${hour.toString().padLeft(2, '0')} : ${minutes.toString().padLeft(2, '0')} $periodOfDay';
+    final mainScreen = MediaQuery.of(context).size.height;
+    final height = mainScreen - MediaQuery.of(context).padding.bottom;
     void setDate(DateTime now) {
       setState(() {
         date = formatDate.format(now);
       });
     }
 
-    bool _isLoading = false;
-
-    void uploadResult() async {
+    void uploadEvent() async {
       setState(() {
         _isLoading = true;
       });
@@ -99,20 +87,21 @@ class _MyResultState extends State<MyResult> {
       });
     }
 
-    String resultCardId = const Uuid().v1();
-    void postResultCard() async {
+    String cardId = const Uuid().v1();
+    void postCard() async {
       setState(() {
         _isLoading = true;
       });
       try {
-        String res = await FirestoreMethods().uploadResultCard(
-          resultCardId,
+        String res = await FirestoreMethods().uploadSportsCard(
+          cardId,
           dropDownValue1!,
           dropDownValue2!,
           dropDownValue3!,
           date,
           time,
-          _result.text,
+          _venue.text,
+          _remarks.text = (_remarks.text.isEmpty) ? 'Welcome' : _remarks.text,
         );
 
         if (res == "success") {
@@ -135,12 +124,12 @@ class _MyResultState extends State<MyResult> {
     @override
     void dispose() {
       super.dispose();
+      _venue.dispose();
       _game.dispose();
       _team1.dispose();
       _team2.dispose();
       _date.dispose();
       _time.dispose();
-      _result.dispose();
     }
 
     return SafeArea(
@@ -309,67 +298,62 @@ class _MyResultState extends State<MyResult> {
                 ],
               ),
               TextFieldInput(
-                textEditingController: _result,
-                labelText: 'Result',
+                textEditingController: _venue,
+                labelText: 'Venue',
                 textInputType: TextInputType.text,
               ),
-              TextButton(
-                onPressed: selectImage,
-                child: const Text(
-                  'Add Score Card',
-                ),
+              TextFieldInput(
+                textEditingController: _remarks,
+                labelText: 'Remarks',
+                textInputType: TextInputType.text,
               ),
-              _image != null
-                  ? CircleAvatar(
-                      maxRadius: 20,
-                      backgroundImage: MemoryImage(_image!),
-                    )
-                  : const CircleAvatar(
-                      maxRadius: 20,
-                      backgroundImage: AssetImage("lib/assets/sac_nitp.jpg"),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      if (dropDownValue1!.isNotEmpty &&
+                          dropDownValue2!.isNotEmpty &&
+                          dropDownValue3!.isNotEmpty &&
+                          date.isNotEmpty &&
+                          time.isNotEmpty &&
+                          _venue.text.isNotEmpty) {
+                        postCard();
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Data Entry Error!'),
+                          ),
+                        );
+                      }
+                    },
+                    style: const ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll(Colors.teal),
                     ),
-              ElevatedButton(
-                onPressed: () {
-                  if (dropDownValue1!.isNotEmpty &&
-                      dropDownValue2!.isNotEmpty &&
-                      dropDownValue3!.isNotEmpty &&
-                      date.isNotEmpty &&
-                      time.isNotEmpty &&
-                      _result.text.isNotEmpty) {
-                    postResultCard();
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Data Entry Error!'),
+                    child: const Text(
+                      'SUBMIT',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
                       ),
-                    );
-                  }
-                },
-                style: const ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(Colors.teal),
-                ),
-                child: const Text(
-                  'SUBMIT',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const MyApp(),
                     ),
-                  );
-                },
-                child: const Text(
-                  'LOGOUT',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
                   ),
-                ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MyApp(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      'LOGOUT',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
