@@ -1,17 +1,17 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sac_nitp/admin_login.dart';
-import 'package:sac_nitp/result_page.dart';
+import 'package:system_theme/system_theme.dart';
 import 'home.dart';
 
 // ignore: non_constant_identifier_names
-List<Widget> Pages = <Widget>[
-  const MyHome(),
-  const MyResHome(),
-  const AdminLogin(),
-];
+// List<Widget> Pages = <Widget>[
+//   const MyHome(),
+//   const MyResHome(),
+//   const AdminLogin(),
+// ];
 
 ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
@@ -28,7 +28,7 @@ ThemeData darkTheme = ThemeData(
     ),
   ),
 );
-int _currentIndex = 0;
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -65,53 +65,23 @@ class MyAppState extends State<MyApp> {
           Theme.of(context).textTheme,
         ),
       ),
-      home: Scaffold(
-        body: Pages[_currentIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          iconSize: 30,
-          //fixedColor: Colors.pink,
-          currentIndex: _currentIndex,
-          onTap: (int index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-          items: const [
-            BottomNavigationBarItem(
-              label: 'IntraMurals',
-              icon: Icon(
-                Icons.sports_cricket_outlined,
-                color: Colors.red,
+      home: AnimatedSplashScreen(
+        splashIconSize: 300,
+        duration: 2000,
+        splash: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: const [
+              CircleAvatar(
+                backgroundImage: AssetImage("lib/assets/sac_nitp.jpg"),
+                maxRadius: 80,
               ),
-              activeIcon: Icon(
-                Icons.sports_cricket_rounded,
-                color: Colors.red,
-              ),
-            ),
-            BottomNavigationBarItem(
-              label: 'Results',
-              icon: Icon(
-                Icons.star_border_outlined,
-                color: Colors.amber,
-              ),
-              activeIcon: Icon(
-                Icons.star,
-                color: Colors.amber,
-              ),
-            ),
-            BottomNavigationBarItem(
-              label: 'Admin',
-              icon: Icon(
-                Icons.account_circle_outlined,
-                color: Colors.indigo,
-              ),
-              activeIcon: Icon(
-                Icons.account_circle_sharp,
-                color: Colors.indigo,
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
+        nextScreen: const MyHome(),
+        backgroundColor: (SystemTheme.isDarkMode) ? Colors.black : Colors.white,
+        splashTransition: SplashTransition.scaleTransition,
       ),
     );
   }

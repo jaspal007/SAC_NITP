@@ -1,7 +1,7 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:sac_nitp/home.dart';
+import 'package:sac_nitp/intramurals.dart';
 import 'package:sac_nitp/main.dart';
 import 'package:sac_nitp/utility/snackbar.dart';
 import 'package:sac_nitp/utility/text_input.dart';
@@ -76,7 +76,7 @@ class _MyAdminState extends State<MyAdmin> {
 
       if (res == 'success') {
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => const MyHome()));
+            MaterialPageRoute(builder: (context) => const MyGame()));
       } else {
         showSnackBar(res, context);
       }
