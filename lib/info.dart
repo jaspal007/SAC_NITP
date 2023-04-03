@@ -1,4 +1,6 @@
+import 'package:add_2_calendar/add_2_calendar.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MyInfo extends StatelessWidget {
   final String game;
@@ -8,6 +10,7 @@ class MyInfo extends StatelessWidget {
   final String time;
   final String venue;
   final String remarks;
+  final DateTime dateTime;
 
   const MyInfo({
     Key? key,
@@ -18,9 +21,18 @@ class MyInfo extends StatelessWidget {
     required this.time,
     required this.venue,
     required this.remarks,
+    required this.dateTime,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final Event event = Event(
+      title: game,
+      description: '$team1 v/s $team2',
+      location: venue,
+      startDate: dateTime,
+      endDate: dateTime,
+      allDay: false,
+    );
     final height = MediaQuery.of(context).size.height -
         MediaQuery.of(context).padding.bottom;
     final width = MediaQuery.of(context).size.width;
@@ -33,134 +45,144 @@ class MyInfo extends StatelessWidget {
             borderRadius: BorderRadius.all(
               Radius.circular(10),
             ),
-            color: Colors.black45,
           ),
           child: Column(
             children: [
               SizedBox(
-                height: 200,
+                height: 250,
                 width: width,
                 child: Image.asset(
                   "lib/assets/intramural_banner.jpg",
                   fit: BoxFit.cover,
                 ),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  //name of the game
-                  Text(
-                    game,
-                    style: const TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.white,
-                    ),
-                  ),
-
-                  //team 1 vs team2
-                  Text(
-                    '$team1 V/S $team2',
-                    style: const TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
-                    ),
-                  ),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.only(
-                          top: 5,
-                          bottom: 2.5,
-                          left: 5,
-                          right: 2.5,
-                        ),
-                        child: Row(
-                          children: [
-                            const Icon(
-                              Icons.calendar_month_outlined,
-                              color: Colors.white,
-                              size: 30,
-                            ),
-                            Text(
-                              ' $date',
-                              style: const TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.w300,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
+              SizedBox(
+                height: height - 500,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    //name of the game
+                    Text(
+                      game,
+                      style: GoogleFonts.kanit(
+                        textStyle: const TextStyle(
+                          fontSize: 40,
+                          fontWeight: FontWeight.w900,
                         ),
                       ),
-                      Container(
-                        padding: const EdgeInsets.only(
-                          top: 5,
-                          bottom: 2.5,
-                          left: 2.5,
-                          right: 5,
-                        ),
-                        child: Row(
-                          children: [
-                            const Icon(
-                              Icons.access_time,
-                              color: Colors.white,
-                              size: 30,
-                            ),
-                            Text(
-                              ' $time',
-                              style: const TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.w300,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
+                    ),
+
+                    //team 1 vs team2
+                    Text(
+                      '$team1 v/s $team2',
+                      style: GoogleFonts.titilliumWeb(
+                        textStyle: const TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
-                    ],
-                  ),
-                  //venue
-                  Container(
-                    padding: const EdgeInsets.only(
-                      top: 2.5,
-                      bottom: 5,
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const Icon(
-                          Icons.location_on_outlined,
-                          size: 30,
-                          color: Colors.white,
+                        Container(
+                          padding: const EdgeInsets.only(
+                            top: 5,
+                            bottom: 2.5,
+                            left: 5,
+                            right: 2.5,
+                          ),
+                          child: Row(
+                            children: [
+                              const Icon(
+                                Icons.calendar_month_outlined,
+                                size: 25,
+                              ),
+                              Text(
+                                ' $date',
+                                style: GoogleFonts.rajdhani(
+                                  textStyle: const TextStyle(
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                        Text(
-                          venue,
-                          style: const TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.w300,
-                            color: Colors.white,
+                        Container(
+                          padding: const EdgeInsets.only(
+                            top: 5,
+                            bottom: 2.5,
+                            left: 2.5,
+                            right: 5,
+                          ),
+                          child: Row(
+                            children: [
+                              const Icon(
+                                Icons.access_time,
+                                size: 25,
+                              ),
+                              Text(
+                                ' $time',
+                                style: GoogleFonts.rajdhani(
+                                  textStyle: const TextStyle(
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
                     ),
-                  ),
-                  Text(
-                    remarks,
-                    style: const TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.w300,
-                      color: Colors.white,
+                    //venue
+                    Container(
+                      padding: const EdgeInsets.only(
+                        top: 2.5,
+                        bottom: 5,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(
+                            Icons.location_on_outlined,
+                            size: 30,
+                          ),
+                          Text(
+                            venue,
+                            style: GoogleFonts.barlowCondensed(
+                              textStyle: const TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                    Text(
+                      remarks,
+                      style: const TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Add2Calendar.addEvent2Cal(event);
+          },
+          backgroundColor: Colors.teal,
+          child: const Icon(Icons.calendar_today),
         ),
       ),
     );

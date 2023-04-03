@@ -22,9 +22,18 @@ class _MyScoreCardState extends State<MyScoreCard> {
           title: const Text('SAC NITP'),
         ),
         body: InteractiveViewer(
-          child: Image.asset(
-            'lib/assets/intramural_banner.jpg',
-            fit: BoxFit.cover,
+          minScale: 0.1,
+          maxScale: 3.0,
+          panEnabled: true,
+          scaleEnabled: true,
+          child: Container(
+            height: height,
+            width: width,
+            alignment: Alignment.center,
+            child: Image.asset(
+              'lib/assets/intramural_banner.jpg',
+              fit: BoxFit.cover,
+            ),
           ),
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sac_nitp/admin.dart';
 import 'package:sac_nitp/info.dart';
 import 'package:sac_nitp/utility/global_variable.dart' as globals;
 
@@ -9,8 +10,9 @@ Map<String, String> images = _variable.getImages();
 
 class MyCard extends StatefulWidget {
   final snap;
+  final DateTime dateTime;
 
-  const MyCard({super.key, this.snap});
+  const MyCard({super.key, this.snap, required this.dateTime});
 
   @override
   State<MyCard> createState() => _MyCardState();
@@ -41,6 +43,7 @@ class _MyCardState extends State<MyCard> {
               team2: team2,
               venue: venue,
               remarks: remarks!,
+              dateTime: dateTime,
             ),
           ),
         );

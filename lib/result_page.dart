@@ -133,7 +133,7 @@ class _MyResHomeApp extends State<MyResHome> {
                               Text(
                                 dateFilter,
                                 style: const TextStyle(
-                                  fontSize: 20,
+                                  fontSize: 18,
                                 ),
                               ),
                               PopupMenuButton(
@@ -180,10 +180,6 @@ class _MyResHomeApp extends State<MyResHome> {
                             icon: const Icon(
                               Icons.calendar_month_outlined,
                             ),
-                            selectedIcon: const Icon(
-                              Icons.sports_basketball,
-                              color: Colors.teal,
-                            ),
                           ),
                           DropdownButton<String>(
                             menuMaxHeight: 150,
@@ -205,7 +201,12 @@ class _MyResHomeApp extends State<MyResHome> {
                                 .map<DropdownMenuItem<String>>((String value) {
                               return DropdownMenuItem<String>(
                                 value: value,
-                                child: Text(value),
+                                child: Text(
+                                  value,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                  ),
+                                ),
                               );
                             }).toList(),
                           ),

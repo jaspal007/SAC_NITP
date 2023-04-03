@@ -1,12 +1,17 @@
+import 'dart:io';
+import 'dart:typed_data';
+
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:sac_nitp/home.dart';
+import 'package:sac_nitp/resources/image_picker.dart';
 import 'package:sac_nitp/utility/snackbar.dart';
 import 'package:sac_nitp/utility/text_input.dart';
 import 'package:uuid/uuid.dart';
 import 'firebase/firestore_methods.dart';
 import 'main.dart';
+import 'package:image_picker/image_picker.dart';
 import 'utility/global_variable.dart' as globals;
 
 globals.GlobalVariable _variable = globals.GlobalVariable();
@@ -37,6 +42,16 @@ class _MyResultState extends State<MyResult> {
   final TextEditingController _team2 = TextEditingController();
   final TextEditingController _date = TextEditingController();
   final TextEditingController _time = TextEditingController();
+
+  ImagePicker imagePicker = ImagePicker();
+  Uint8List? _image;
+
+  void selectImage() async {
+    Uint8List image = await pickImage(ImageSource.gallery);
+    setState(() {
+      _image = image;
+    });
+  }
 
   void clearFields() {
     setState(() {
@@ -298,6 +313,21 @@ class _MyResultState extends State<MyResult> {
                 labelText: 'Result',
                 textInputType: TextInputType.text,
               ),
+              TextButton(
+                onPressed: selectImage,
+                child: const Text(
+                  'Add Score Card',
+                ),
+              ),
+              _image != null
+                  ? CircleAvatar(
+                      maxRadius: 20,
+                      backgroundImage: MemoryImage(_image!),
+                    )
+                  : const CircleAvatar(
+                      maxRadius: 20,
+                      backgroundImage: AssetImage("lib/assets/sac_nitp.jpg"),
+                    ),
               ElevatedButton(
                 onPressed: () {
                   if (dropDownValue1!.isNotEmpty &&

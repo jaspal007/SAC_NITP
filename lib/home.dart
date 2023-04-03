@@ -18,6 +18,7 @@ final yesFilter = nowFilter.subtract(const Duration(days: 1));
 final tomFilter = nowFilter.add(const Duration(days: 1));
 final DateFormat format = DateFormat.MMMEd();
 String dateFilter = "Today";
+DateTime dateEvent = nowFilter;
 
 List<String> games = _variable.getGames();
 String dropdownValue = games.first;
@@ -25,45 +26,53 @@ String dropdownValue = games.first;
 Stream setStream(String game, String date) {
   if (game == 'ALL') {
     if (date == 'Today') {
+      dateEvent = nowFilter;
       return FirebaseFirestore.instance
           .collection('sportsCard')
           .where('date', isEqualTo: format.format(nowFilter))
           .snapshots();
     } else if (date == 'Yesterday') {
+      dateEvent = yesFilter;
       return FirebaseFirestore.instance
           .collection('sportsCard')
           .where('date', isEqualTo: format.format(yesFilter))
           .snapshots();
     } else if (date == 'Tommorow') {
+      dateEvent = tomFilter;
       return FirebaseFirestore.instance
           .collection('sportsCard')
           .where('date', isEqualTo: format.format(tomFilter))
           .snapshots();
     }
+    dateEvent = now;
     return FirebaseFirestore.instance
         .collection('sportsCard')
         .where('date', isEqualTo: format.format(now))
         .snapshots();
   } else {
     if (date == 'Today') {
+      dateEvent = nowFilter;
       return FirebaseFirestore.instance
           .collection('sportsCard')
           .where('game', isEqualTo: game)
           .where('date', isEqualTo: format.format(nowFilter))
           .snapshots();
     } else if (date == 'Yesterday') {
+      dateEvent = yesFilter;
       return FirebaseFirestore.instance
           .collection('sportsCard')
           .where('game', isEqualTo: game)
           .where('date', isEqualTo: format.format(yesFilter))
           .snapshots();
     } else if (date == 'Tommorow') {
+      dateEvent = tomFilter;
       return FirebaseFirestore.instance
           .collection('sportsCard')
           .where('game', isEqualTo: game)
           .where('date', isEqualTo: format.format(tomFilter))
           .snapshots();
     }
+    dateEvent = now;
     return FirebaseFirestore.instance
         .collection('sportsCard')
         .where('game', isEqualTo: game)
@@ -142,7 +151,7 @@ class _MyHomeApp extends State<MyHome> {
                             Text(
                               dateFilter,
                               style: const TextStyle(
-                                fontSize: 20,
+                                fontSize: 18,
                               ),
                             ),
                             PopupMenuButton(
@@ -216,8 +225,12 @@ class _MyHomeApp extends State<MyHome> {
                                 .map<DropdownMenuItem<String>>((String value) {
                               return DropdownMenuItem<String>(
                                 value: value,
-                                child: Text(value,
-                                    overflow: TextOverflow.ellipsis),
+                                child: Text(
+                                  value,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                  ),
+                                ),
                               );
                             }).toList(),
                           ),
@@ -231,6 +244,7 @@ class _MyHomeApp extends State<MyHome> {
                       itemBuilder: (context, index) {
                         return MyCard(
                           snap: snapshot.data!.docs[index].data(),
+                          dateTime: dateEvent,
                         );
                       },
                     ),
