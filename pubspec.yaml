@@ -100,6 +100,7 @@ flutter:
     - lib/assets/table_tennis.jpg
     - lib/assets/volleyball.jpg
     - lib/assets/intramural_banner.jpg
+    - lib/assets/coord_banner.jpg
     - lib/assets/medal_logo.png
     - lib/assets/NITP_logo3.png
     - lib/assets/Intramural_medal.png

@@ -22,6 +22,7 @@ class _MyScoreCardState extends State<MyScoreCard> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: const Text('SAC NITP'),
         ),
         body: InteractiveViewer(
