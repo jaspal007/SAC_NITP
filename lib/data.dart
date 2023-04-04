@@ -30,7 +30,6 @@ class _MyDataState extends State<MyData> {
       child: Scaffold(
         body: Pages[_currIndex],
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.black54,
           iconSize: 30,
           fixedColor: Colors.white,
           currentIndex: _currIndex,
@@ -44,22 +43,18 @@ class _MyDataState extends State<MyData> {
               label: 'Match',
               icon: Icon(
                 Icons.sports_cricket_outlined,
-                color: Colors.teal,
               ),
               activeIcon: Icon(
-                Icons.sports_cricket_rounded,
-                color: Colors.teal,
+                Icons.sports_cricket,
               ),
             ),
             BottomNavigationBarItem(
               label: 'Result',
               icon: Icon(
-                Icons.star_border_outlined,
-                color: Colors.amber,
+                Icons.emoji_events_outlined,
               ),
               activeIcon: Icon(
-                Icons.star,
-                color: Colors.amber,
+                Icons.emoji_events,
               ),
             ),
           ],
@@ -74,7 +69,7 @@ class _MyDataState extends State<MyData> {
             );
           },
           child: const Icon(
-            Icons.calendar_view_day,
+            Icons.auto_awesome_mosaic_rounded,
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

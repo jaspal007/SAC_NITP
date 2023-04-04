@@ -1,5 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'utility/global_variable.dart' as globals;
+
+globals.GlobalVariable globalVariable = globals.GlobalVariable();
 
 class MyScoreCard extends StatefulWidget {
   const MyScoreCard({super.key});

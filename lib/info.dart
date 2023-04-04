@@ -177,13 +177,13 @@ class MyInfo extends StatelessWidget {
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Add2Calendar.addEvent2Cal(event);
-          },
-          backgroundColor: Colors.teal,
-          child: const Icon(Icons.calendar_today),
-        ),
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: () {
+        //     Add2Calendar.addEvent2Cal(event);
+        //   },
+        //   backgroundColor: Colors.teal,
+        //   child: const Icon(Icons.calendar_today),
+        // ),
       ),
     );
   }

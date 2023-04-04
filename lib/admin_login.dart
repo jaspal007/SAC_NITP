@@ -48,13 +48,24 @@ class _AdminLoginState extends State<AdminLogin> {
                 height: height * 0.25,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    CircleAvatar(
-                      backgroundImage: AssetImage("lib/assets/sac_nitp.jpg"),
-                      maxRadius: 65,
-                      minRadius: 20,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        const CircleAvatar(
+                          backgroundImage:
+                              AssetImage("lib/assets/sac_nitp.jpg"),
+                          maxRadius: 65,
+                          minRadius: 20,
+                        ),
+                        Image.asset(
+                          "lib/assets/NITP_logo3.png",
+                          cacheHeight: 130,
+                          cacheWidth: 130,
+                        ),
+                      ],
                     ),
-                    Text(
+                    const Text(
                       'Admin Login',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,

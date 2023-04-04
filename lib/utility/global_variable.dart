@@ -1,4 +1,4 @@
-final games = <String,String>{
+final games = <String, String>{
   'ALL': 'lib/assets/space.jpg',
   'TABLE TENNIS': 'lib/assets/table_tennis.jpg',
   'CHESS': 'lib/assets/chess.jpg',
@@ -25,7 +25,7 @@ List<String> teams = <String>[
 ];
 
 class GlobalVariable {
-  final sports =games.keys.toList(growable: false);
+  final sports = games.keys.toList(growable: false);
   getGames() => sports;
   Map<String, String> getImages() => games;
   //void setGames(List<String>? value) => games.keys.toList() = value!;

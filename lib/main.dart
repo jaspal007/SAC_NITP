@@ -58,7 +58,7 @@ class MyAppState extends State<MyApp> {
       theme: ThemeData(
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           backgroundColor: Colors.teal,
-          selectedItemColor: Colors.amber,
+          selectedItemColor: Colors.white,
         ),
         primarySwatch: Colors.teal,
         textTheme: GoogleFonts.quicksandTextTheme(
@@ -66,15 +66,36 @@ class MyAppState extends State<MyApp> {
         ),
       ),
       home: AnimatedSplashScreen(
-        splashIconSize: 300,
+        splashIconSize: 1000,
         duration: 500,
         splash: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: const [
-              CircleAvatar(
-                backgroundImage: AssetImage("lib/assets/sac_nitp.jpg"),
-                maxRadius: 80,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 500,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: const [
+                     CircleAvatar(
+                      backgroundImage: AssetImage("lib/assets/sac_nitp.jpg"),
+                      maxRadius: 80,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                height: 280,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Image.asset(
+                      "lib/assets/NITP_logo3.png",
+                      cacheHeight: 100,
+                      cacheWidth: 100,
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

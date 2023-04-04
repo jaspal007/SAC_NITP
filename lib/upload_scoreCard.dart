@@ -1,10 +1,9 @@
 import 'dart:typed_data';
-
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sac_nitp/resources/image_picker.dart';
 import 'package:sac_nitp/utility/snackbar.dart';
-
 import 'firebase/storage_methods.dart';
 
 class MyScore extends StatefulWidget {
@@ -27,14 +26,15 @@ class _MyScoreState extends State<MyScore> {
   }
 
   void postImage() async {
+    if (_image == null) return;
     setState(() {
       _isLoading = true;
     });
+
     try {
       String photoUrl =
           await StorageMethods().uploadImageToStorage('results', _image!, true);
       String res = photoUrl != null ? 'success' : 'Some Error occured';
-
       if (res == "success") {
         setState(() {
           _isLoading = true;
