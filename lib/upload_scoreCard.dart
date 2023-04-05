@@ -1,11 +1,35 @@
 import 'dart:typed_data';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sac_nitp/resources/image_picker.dart';
+import 'package:sac_nitp/scorecard.dart';
 import 'package:sac_nitp/utility/snackbar.dart';
 
 import 'firebase/storage_methods.dart';
+
+class StorageService {
+  static String? photoUrl;
+
+  Future<String> getLatestImageUrl() async {
+    // Query Firestore to retrieve the document with the latest timestamp
+    QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+        .collection('resultTable')
+        .orderBy('timestamp', descending: true)
+        .limit(1)
+        .get();
+
+    // Extract the URL of the latest image from the document
+    String imageUrl = querySnapshot.docs.first['url'];
+
+    return imageUrl;
+  }
+
+  // StorageService(String image) {
+  //   photoUrl = image;
+  // }
+}
 
 class MyScore extends StatefulWidget {
   const MyScore({super.key});
@@ -33,6 +57,8 @@ class _MyScoreState extends State<MyScore> {
     try {
       String photoUrl =
           await StorageMethods().uploadImageToStorage('results', _image!, true);
+
+      // StorageService.photoUrl = photoUrl;
       String res = photoUrl != null ? 'success' : 'Some Error occured';
 
       if (res == "success") {
@@ -47,9 +73,25 @@ class _MyScoreState extends State<MyScore> {
         });
         showSnackBar(res, context);
       }
+      String showImage(String url) {
+        url = photoUrl;
+        return url;
+      }
+
+      FirebaseFirestore.instance.collection('resultTable').add({
+        'url': photoUrl,
+        'timestamp': FieldValue.serverTimestamp(),
+      });
+
+      // imageUrl = photoUrl;
+      // StorageService(photoUrl);
     } catch (e) {
       showSnackBar(e.toString(), context);
     }
+  }
+
+  String sendImage() {
+    return "url";
   }
 
   void clearImage() {

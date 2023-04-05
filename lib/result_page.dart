@@ -329,12 +329,14 @@ class _MyResHomeApp extends State<MyResHome> {
             }),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const MyScoreCard(),
-              ),
-            );
+            if (mounted) {
+              Navigator.push(
+                context!,
+                MaterialPageRoute(
+                  builder: (context) => MyScoreCard(),
+                ),
+              );
+            }
           },
           backgroundColor: Colors.teal,
           tooltip: 'ScoreBoard',
