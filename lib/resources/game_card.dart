@@ -56,7 +56,7 @@ class _MyCardState extends State<MyCard> {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(images[game]!),
-            opacity: 0.2,
+            opacity: 0.4,
             fit: BoxFit.cover,
           ),
           borderRadius: const BorderRadius.all(

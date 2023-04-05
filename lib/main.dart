@@ -85,7 +85,7 @@ class MyAppState extends State<MyApp> {
                 ),
               ),
               Container(
-                height: 280,
+                height: 250,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [

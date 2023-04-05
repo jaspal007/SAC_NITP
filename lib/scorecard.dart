@@ -7,33 +7,38 @@ import 'utility/global_variable.dart' as globals;
 
 globals.GlobalVariable globalVariable = globals.GlobalVariable();
 
-
 class MyScoreCard extends StatefulWidget {
-  MyScoreCard({
+  final String photoUrl;
+  const MyScoreCard({
+    required this.photoUrl,
     super.key,
   });
 
   @override
-  State<StatefulWidget> createState() => _MyScoreCardState();
+  State<StatefulWidget> createState() => _MyScoreCardState(url: photoUrl);
 }
 
 class _MyScoreCardState extends State<MyScoreCard> {
-  String latestImageUrl = '';
-  StorageService storageService = StorageService();
+  final String url;
+  _MyScoreCardState({
+    required this.url,
+  });
+  // String latestImageUrl = '';
+  // StorageService storageService = StorageService();
 
-  @override
-  void initState() {
-    super.initState();
-    loadLatestImageUrl(); // call function to load latest image URL when widget is created
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   loadLatestImageUrl(); // call function to load latest image URL when widget is created
+  // }
 
-  Future<void> loadLatestImageUrl() async {
-    String photoUrl = await storageService
-        .getLatestImageUrl(); // call function to retrieve latest image URL
-    setState(() {
-      latestImageUrl = photoUrl; // set value of variable in setState() method
-    });
-  }
+  // Future<void> loadLatestImageUrl() async {
+  //   String photoUrl = await storageService
+  //       .getLatestImageUrl(); // call function to retrieve latest image URL
+  //   setState(() {
+  //     latestImageUrl = photoUrl; // set value of variable in setState() method
+  //   });
+  // }
 
   double vertical = 0;
   double horizontal = 0;
@@ -60,10 +65,24 @@ class _MyScoreCardState extends State<MyScoreCard> {
             height: height,
             width: width,
             alignment: Alignment.center,
-            child: latestImageUrl != null
+            child: url != null
                 ? Image.network(
-                    latestImageUrl,
+                    url,
                     fit: BoxFit.cover,
+                    loadingBuilder: (BuildContext context, Widget child,
+                        ImageChunkEvent? loadingProgress) {
+                      return loadingProgress == null
+                          ? child
+                          : Center(
+                              child: CircularProgressIndicator(
+                                value: loadingProgress.expectedTotalBytes !=
+                                        null
+                                    ? loadingProgress.cumulativeBytesLoaded /
+                                        loadingProgress.expectedTotalBytes!
+                                    : null,
+                              ),
+                            );
+                    },
                   )
                 : Container(
                     color: Colors.white,

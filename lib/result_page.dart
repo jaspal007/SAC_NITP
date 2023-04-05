@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sac_nitp/resources/result_card.dart';
 import 'package:intl/intl.dart';
 import 'package:sac_nitp/scorecard.dart';
+import 'package:sac_nitp/upload_scoreCard.dart';
 import 'utility/global_variable.dart' as globals;
 
 globals.GlobalVariable _variable = globals.GlobalVariable();
@@ -78,7 +79,22 @@ class MyResHome extends StatefulWidget {
 }
 
 class _MyResHomeApp extends State<MyResHome> {
-  final _key1 = GlobalKey();
+  String latestImageUrl = '';
+  StorageService storageService = StorageService();
+
+  @override
+  void initState() {
+    super.initState();
+    loadLatestImageUrl(); // call function to load latest image URL when widget is created
+  }
+
+  Future<void> loadLatestImageUrl() async {
+    String photoUrl = await storageService
+        .getLatestImageUrl(); // call function to retrieve latest image URL
+    setState(() {
+      latestImageUrl = photoUrl; // set value of variable in setState() method
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -123,7 +139,6 @@ class _MyResHomeApp extends State<MyResHome> {
                       padding: const EdgeInsets.all(10),
                       width: double.infinity,
                       height: height * 0.1,
-                      key: _key1,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -232,7 +247,6 @@ class _MyResHomeApp extends State<MyResHome> {
                     padding: const EdgeInsets.all(10),
                     width: double.infinity,
                     height: height * 0.1,
-                    key: _key1,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -331,9 +345,9 @@ class _MyResHomeApp extends State<MyResHome> {
           onPressed: () {
             if (mounted) {
               Navigator.push(
-                context!,
+                context,
                 MaterialPageRoute(
-                  builder: (context) => MyScoreCard(),
+                  builder: (context) => MyScoreCard(photoUrl: latestImageUrl),
                 ),
               );
             }
