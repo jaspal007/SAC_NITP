@@ -1,12 +1,15 @@
 import 'dart:typed_data';
 
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+
+import 'package:firebase_storage/firebase_storage.dart';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sac_nitp/resources/image_picker.dart';
 import 'package:sac_nitp/scorecard.dart';
 import 'package:sac_nitp/utility/snackbar.dart';
-
 import 'firebase/storage_methods.dart';
 
 class StorageService {
@@ -51,16 +54,17 @@ class _MyScoreState extends State<MyScore> {
   }
 
   void postImage() async {
+    if (_image == null) return;
     setState(() {
       _isLoading = true;
     });
+
     try {
       String photoUrl =
           await StorageMethods().uploadImageToStorage('results', _image!, true);
 
       // StorageService.photoUrl = photoUrl;
       String res = photoUrl != null ? 'success' : 'Some Error occured';
-
       if (res == "success") {
         setState(() {
           _isLoading = true;

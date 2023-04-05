@@ -1,6 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
 import 'package:sac_nitp/upload_scoreCard.dart';
+
+import 'utility/global_variable.dart' as globals;
+
+globals.GlobalVariable globalVariable = globals.GlobalVariable();
+
 
 class MyScoreCard extends StatefulWidget {
   MyScoreCard({
@@ -42,6 +48,7 @@ class _MyScoreCardState extends State<MyScoreCard> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: const Text('SAC NITP'),
         ),
         body: InteractiveViewer(

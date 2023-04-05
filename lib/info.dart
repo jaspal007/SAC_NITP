@@ -1,6 +1,10 @@
 import 'package:add_2_calendar/add_2_calendar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'utility/global_variable.dart' as globals;
+
+globals.GlobalVariable globalVariable = globals.GlobalVariable();
+Map<String, String> coord = globalVariable.getCoordNames();
 
 class MyInfo extends StatelessWidget {
   final String game;
@@ -42,22 +46,35 @@ class MyInfo extends StatelessWidget {
           height: height,
           width: width,
           decoration: const BoxDecoration(
+            color: Colors.white,
             borderRadius: BorderRadius.all(
               Radius.circular(10),
             ),
           ),
           child: Column(
             children: [
-              SizedBox(
+              Container(
                 height: 250,
                 width: width,
-                child: Image.asset(
-                  "lib/assets/intramural_banner.jpg",
-                  fit: BoxFit.cover,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("lib/assets/coord_banner.jpg"),
+                    opacity: 0.3,
+                    fit: BoxFit.cover,
+                  ),
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.black,
+                      Colors.black45,
+                      Colors.white10,
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  ),
                 ),
               ),
               SizedBox(
-                height: height - 500,
+                height: height - 400,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -171,18 +188,22 @@ class MyInfo extends StatelessWidget {
                         fontWeight: FontWeight.w300,
                       ),
                     ),
+                    Text(
+                      textAlign: TextAlign.center,
+                      'Coordinator: ${coord[game]}',
+                      style: GoogleFonts.spaceGrotesk(
+                        textStyle: const TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      maxLines: 2,
+                    ),
                   ],
                 ),
               ),
             ],
           ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Add2Calendar.addEvent2Cal(event);
-          },
-          backgroundColor: Colors.teal,
-          child: const Icon(Icons.calendar_today),
         ),
       ),
     );
