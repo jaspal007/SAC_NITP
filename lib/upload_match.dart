@@ -135,7 +135,7 @@ class _MyAdminState extends State<MyAdmin> {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          height: height * 0.9,
+          height: height * 0.8,
           width: MediaQuery.of(context).size.width,
           padding: const EdgeInsets.all(10),
           margin: const EdgeInsets.all(10),
@@ -144,7 +144,7 @@ class _MyAdminState extends State<MyAdmin> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.symmetric(vertical: 10),
                   child: const Text(
                     textAlign: TextAlign.left,
                     'Admin',
@@ -156,7 +156,7 @@ class _MyAdminState extends State<MyAdmin> {
                 ),
                 //Game
                 Container(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.symmetric(vertical: 10),
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton2(
                       isExpanded: true,
@@ -187,7 +187,7 @@ class _MyAdminState extends State<MyAdmin> {
                 ),
                 //Team 1
                 Container(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.symmetric(vertical: 10),
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton2(
                       isExpanded: true,
@@ -220,7 +220,7 @@ class _MyAdminState extends State<MyAdmin> {
                 ),
                 //Team 2
                 Container(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.symmetric(vertical: 10),
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton2(
                       isExpanded: true,
@@ -252,7 +252,7 @@ class _MyAdminState extends State<MyAdmin> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.symmetric(vertical: 10),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -312,7 +312,7 @@ class _MyAdminState extends State<MyAdmin> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.symmetric(vertical: 20),
                   child: TextFieldInput(
                     textEditingController: _venue,
                     labelText: 'Venue',
@@ -320,7 +320,7 @@ class _MyAdminState extends State<MyAdmin> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.symmetric(vertical: 10),
                   child: TextFieldInput(
                     textEditingController: _remarks,
                     labelText: 'Remarks',
@@ -328,7 +328,7 @@ class _MyAdminState extends State<MyAdmin> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

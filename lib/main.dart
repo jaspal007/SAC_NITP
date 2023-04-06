@@ -7,12 +7,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:system_theme/system_theme.dart';
 import 'home.dart';
 
-// ignore: non_constant_identifier_names
-// List<Widget> Pages = <Widget>[
-//   const MyHome(),
-//   const MyResHome(),
-//   const AdminLogin(),
-// ];
 
 ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
