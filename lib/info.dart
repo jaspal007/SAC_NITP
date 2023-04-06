@@ -48,7 +48,6 @@ class MyInfo extends StatelessWidget {
             height: height,
             width: width,
             decoration: const BoxDecoration(
-              color: Colors.white,
               borderRadius: BorderRadius.all(
                 Radius.circular(10),
               ),
@@ -61,7 +60,7 @@ class MyInfo extends StatelessWidget {
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("lib/assets/coord_banner.jpg"),
-                      opacity: 0.3,
+                      opacity: 0.5,
                       fit: BoxFit.cover,
                     ),
                     gradient: LinearGradient(

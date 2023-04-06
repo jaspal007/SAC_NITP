@@ -133,223 +133,238 @@ class _MyResultState extends State<MyResult> {
 
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          height: height,
-          width: MediaQuery.of(context).size.width,
-          padding: const EdgeInsets.all(10),
-          margin: const EdgeInsets.all(10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                child: const Text(
-                  textAlign: TextAlign.left,
-                  'Admin',
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
+        body: SingleChildScrollView(
+          child: Container(
+            height: height * 0.8,
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  child: const Text(
+                    textAlign: TextAlign.left,
+                    'Admin',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-              ),
-              //Game
-              DropdownButtonHideUnderline(
-                child: DropdownButton2(
-                  isExpanded: true,
-                  dropdownMaxHeight: 150,
-                  icon: const Icon(
-                    Icons.sports_baseball_rounded,
-                  ),
-                  iconEnabledColor: Colors.teal,
-                  hint: const Text('Game'),
-                  items: games
-                      .map(
-                        (game) => DropdownMenuItem<String>(
-                          value: game,
-                          child: Text(
-                            game,
-                          ),
-                        ),
-                      )
-                      .toList(),
-                  value: dropDownValue1,
-                  onChanged: (String? value) {
-                    setState(() {
-                      dropDownValue1 = value!;
-                    });
-                  },
-                ),
-              ),
-              //Team 1
-              DropdownButtonHideUnderline(
-                child: DropdownButton2(
-                  isExpanded: true,
-                  dropdownMaxHeight: 150,
-                  icon: const Icon(
-                    Icons.sports_baseball_rounded,
-                  ),
-                  iconEnabledColor: Colors.teal,
-                  hint: const Text(
-                    'Select Team 1',
-                  ),
-                  items: teams
-                      .map(
-                        (team) => DropdownMenuItem<String>(
-                          value: team,
-                          child: Text(
-                            team,
-                          ),
-                        ),
-                      )
-                      .toList(),
-                  value: dropDownValue2,
-                  onChanged: (String? value) {
-                    setState(() {
-                      dropDownValue2 = value!;
-                    });
-                  },
-                ),
-              ),
-              //Team 2
-              DropdownButtonHideUnderline(
-                child: DropdownButton2(
-                  isExpanded: true,
-                  dropdownMaxHeight: 150,
-                  icon: const Icon(
-                    Icons.sports_baseball_rounded,
-                  ),
-                  iconEnabledColor: Colors.teal,
-                  hint: const Text(
-                    'Select Team 2',
-                  ),
-                  items: teams
-                      .map(
-                        (team) => DropdownMenuItem<String>(
-                          value: team,
-                          child: Text(
-                            team,
-                          ),
-                        ),
-                      )
-                      .toList(),
-                  value: dropDownValue3,
-                  onChanged: (String? value) {
-                    setState(() {
-                      dropDownValue3 = value!;
-                    });
-                  },
-                ),
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        date,
+                //Game
+                Container(
+                  child: DropdownButtonHideUnderline(
+                    child: DropdownButton2(
+                      isExpanded: true,
+                      dropdownMaxHeight: 150,
+                      icon: const Icon(
+                        Icons.sports_baseball_rounded,
                       ),
-                      IconButton(
-                        onPressed: () async {
-                          DateTime? newDate = await showDatePicker(
-                            context: context,
-                            initialDate: dateTime,
-                            firstDate: DateTime(2004),
-                            lastDate: DateTime(2104),
-                          );
-                          if (newDate == null) return;
-                          setState(() {
-                            dateTime = newDate;
-                          });
-                          setDate(dateTime);
+                      iconEnabledColor: Colors.teal,
+                      hint: const Text('Game'),
+                      items: games
+                          .map(
+                            (game) => DropdownMenuItem<String>(
+                              value: game,
+                              child: Text(
+                                game,
+                              ),
+                            ),
+                          )
+                          .toList(),
+                      value: dropDownValue1,
+                      onChanged: (String? value) {
+                        setState(() {
+                          dropDownValue1 = value!;
+                        });
+                      },
+                    ),
+                  ),
+                ),
+                //Team 1
+                Container(
+                  child: DropdownButtonHideUnderline(
+                    child: DropdownButton2(
+                      isExpanded: true,
+                      dropdownMaxHeight: 150,
+                      icon: const Icon(
+                        Icons.sports_baseball_rounded,
+                      ),
+                      iconEnabledColor: Colors.teal,
+                      hint: const Text(
+                        'Select Team 1',
+                      ),
+                      items: teams
+                          .map(
+                            (team) => DropdownMenuItem<String>(
+                              value: team,
+                              child: Text(
+                                team,
+                              ),
+                            ),
+                          )
+                          .toList(),
+                      value: dropDownValue2,
+                      onChanged: (String? value) {
+                        setState(() {
+                          dropDownValue2 = value!;
+                        });
+                      },
+                    ),
+                  ),
+                ),
+                //Team 2
+                Container(
+                  child: DropdownButtonHideUnderline(
+                    child: DropdownButton2(
+                      isExpanded: true,
+                      dropdownMaxHeight: 150,
+                      icon: const Icon(
+                        Icons.sports_baseball_rounded,
+                      ),
+                      iconEnabledColor: Colors.teal,
+                      hint: const Text(
+                        'Select Team 2',
+                      ),
+                      items: teams
+                          .map(
+                            (team) => DropdownMenuItem<String>(
+                              value: team,
+                              child: Text(
+                                team,
+                              ),
+                            ),
+                          )
+                          .toList(),
+                      value: dropDownValue3,
+                      onChanged: (String? value) {
+                        setState(() {
+                          dropDownValue3 = value!;
+                        });
+                      },
+                    ),
+                  ),
+                ),
+                Container(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            date,
+                          ),
+                          IconButton(
+                            onPressed: () async {
+                              DateTime? newDate = await showDatePicker(
+                                context: context,
+                                initialDate: dateTime,
+                                firstDate: DateTime(2004),
+                                lastDate: DateTime(2104),
+                              );
+                              if (newDate == null) return;
+                              setState(() {
+                                dateTime = newDate;
+                              });
+                              setDate(dateTime);
+                            },
+                            icon: const Icon(
+                              Icons.calendar_month_outlined,
+                              color: Colors.teal,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            time,
+                          ),
+                          IconButton(
+                            onPressed: () async {
+                              TimeOfDay? newTime = await showTimePicker(
+                                context: context,
+                                initialTime: TimeOfDay.now(),
+                              );
+                              if (newTime == null) return;
+                              setState(() {
+                                timeOfDay = newTime;
+                              });
+                            },
+                            icon: const Icon(
+                              Icons.access_time_outlined,
+                              color: Colors.teal,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  child: TextFieldInput(
+                    textEditingController: _result,
+                    labelText: 'Result',
+                    textInputType: TextInputType.text,
+                  ),
+                ),
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          if (dropDownValue1!.isNotEmpty &&
+                              dropDownValue2!.isNotEmpty &&
+                              dropDownValue3!.isNotEmpty &&
+                              date.isNotEmpty &&
+                              time.isNotEmpty &&
+                              _result.text.isNotEmpty) {
+                            postResultCard();
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Data Entry Error!'),
+                              ),
+                            );
+                          }
                         },
-                        icon: const Icon(
-                          Icons.calendar_month_outlined,
-                          color: Colors.teal,
+                        style: const ButtonStyle(
+                          backgroundColor:
+                              MaterialStatePropertyAll(Colors.teal),
+                        ),
+                        child: const Text(
+                          'SUBMIT',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const MyApp(),
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          'LOGOUT',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ],
                   ),
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        time,
-                      ),
-                      IconButton(
-                        onPressed: () async {
-                          TimeOfDay? newTime = await showTimePicker(
-                            context: context,
-                            initialTime: TimeOfDay.now(),
-                          );
-                          if (newTime == null) return;
-                          setState(() {
-                            timeOfDay = newTime;
-                          });
-                        },
-                        icon: const Icon(
-                          Icons.access_time_outlined,
-                          color: Colors.teal,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              TextFieldInput(
-                textEditingController: _result,
-                labelText: 'Result',
-                textInputType: TextInputType.text,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      if (dropDownValue1!.isNotEmpty &&
-                          dropDownValue2!.isNotEmpty &&
-                          dropDownValue3!.isNotEmpty &&
-                          date.isNotEmpty &&
-                          time.isNotEmpty &&
-                          _result.text.isNotEmpty) {
-                        postResultCard();
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Data Entry Error!'),
-                          ),
-                        );
-                      }
-                    },
-                    style: const ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll(Colors.teal),
-                    ),
-                    child: const Text(
-                      'SUBMIT',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const MyApp(),
-                        ),
-                      );
-                    },
-                    child: const Text(
-                      'LOGOUT',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
