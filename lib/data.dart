@@ -26,53 +26,57 @@ class MyData extends StatefulWidget {
 class _MyDataState extends State<MyData> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Pages[_currIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          iconSize: 30,
-          fixedColor: Colors.white,
-          currentIndex: _currIndex,
-          onTap: (int index) {
-            setState(() {
-              _currIndex = index;
-            });
-          },
-          items: const [
-            BottomNavigationBarItem(
-              label: 'Match',
-              icon: Icon(
-                Icons.sports_cricket_outlined,
+    return MediaQuery(
+      data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+      child: SafeArea(
+        child: Scaffold(
+          body: Pages[_currIndex],
+          bottomNavigationBar: BottomNavigationBar(
+            iconSize: 30,
+            fixedColor: Colors.white,
+            currentIndex: _currIndex,
+            onTap: (int index) {
+              setState(() {
+                _currIndex = index;
+              });
+            },
+            items: const [
+              BottomNavigationBarItem(
+                label: 'Match',
+                icon: Icon(
+                  Icons.sports_cricket_outlined,
+                ),
+                activeIcon: Icon(
+                  Icons.sports_cricket,
+                ),
               ),
-              activeIcon: Icon(
-                Icons.sports_cricket,
+              BottomNavigationBarItem(
+                label: 'Result',
+                icon: Icon(
+                  Icons.emoji_events_outlined,
+                ),
+                activeIcon: Icon(
+                  Icons.emoji_events,
+                ),
               ),
-            ),
-            BottomNavigationBarItem(
-              label: 'Result',
-              icon: Icon(
-                Icons.emoji_events_outlined,
-              ),
-              activeIcon: Icon(
-                Icons.emoji_events,
-              ),
-            ),
-          ],
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const MyScore(),
-              ),
-            );
-          },
-          child: const Icon(
-            Icons.auto_awesome_mosaic_rounded,
+            ],
           ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const MyScore(),
+                ),
+              );
+            },
+            child: const Icon(
+              Icons.auto_awesome_mosaic_rounded,
+            ),
+          ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
     );
   }

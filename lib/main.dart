@@ -2,6 +2,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:system_theme/system_theme.dart';
 import 'home.dart';
@@ -32,6 +33,7 @@ ThemeData darkTheme = ThemeData(
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await ScreenUtil.ensureScreenSize();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]).then((value) {
@@ -51,59 +53,70 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.system,
-      darkTheme: darkTheme,
-      theme: ThemeData(
-        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: Colors.teal,
-          selectedItemColor: Colors.white,
-        ),
-        primarySwatch: Colors.teal,
-        textTheme: GoogleFonts.quicksandTextTheme(
-          Theme.of(context).textTheme,
-        ),
-      ),
-      home: AnimatedSplashScreen(
-        splashIconSize: 1000,
-        duration: 500,
-        splash: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                height: 500,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
-                     CircleAvatar(
-                      backgroundImage: AssetImage("lib/assets/sac_nitp.jpg"),
-                      maxRadius: 80,
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                height: 250,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Image.asset(
-                      "lib/assets/NITP_logo3.png",
-                      cacheHeight: 100,
-                      cacheWidth: 100,
-                    ),
-                  ],
-                ),
-              ),
-            ],
+    return ScreenUtilInit(
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          themeMode: ThemeMode.system,
+          darkTheme: darkTheme,
+          theme: ThemeData(
+            bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+              backgroundColor: Colors.teal,
+              selectedItemColor: Colors.white,
+            ),
+            primarySwatch: Colors.teal,
+            textTheme: GoogleFonts.quicksandTextTheme(
+              Theme.of(context).textTheme,
+            ),
           ),
-        ),
-        nextScreen: const MyHome(),
-        backgroundColor: (SystemTheme.isDarkMode) ? Colors.black : Colors.white,
-        splashTransition: SplashTransition.scaleTransition,
-      ),
+          home: AnimatedSplashScreen(
+            splashIconSize: 1000,
+            duration: 500,
+            splash: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    // height: 500,
+                    height: ScreenUtil().setHeight(0.29.sh),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: const [
+                        CircleAvatar(
+                          backgroundImage:
+                              AssetImage("lib/assets/sac_nitp.jpg"),
+                          maxRadius: 80,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    // height: 250,
+                    height: ScreenUtil().setHeight(0.29.sh),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Image.asset(
+                          "lib/assets/NITP_logo3.png",
+                          cacheHeight: 100,
+                          cacheWidth: 100,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            nextScreen: const MyHome(),
+            backgroundColor:
+                (SystemTheme.isDarkMode) ? Colors.black : Colors.white,
+            splashTransition: SplashTransition.scaleTransition,
+          ),
+        );
+      },
     );
   }
 }

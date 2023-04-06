@@ -32,133 +32,137 @@ class _AdminLoginState extends State<AdminLogin> {
     final keyboard = MediaQuery.of(context).viewInsets.bottom;
     final height =
         mainScreen - MediaQuery.of(context).padding.bottom - keyboard;
-    return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Container(
-          margin: const EdgeInsets.all(10),
-          height: height,
-          width: MediaQuery.of(context).size.width,
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: height * 0.25,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        const CircleAvatar(
-                          backgroundImage:
-                              AssetImage("lib/assets/sac_nitp.jpg"),
-                          maxRadius: 65,
-                          minRadius: 20,
-                        ),
-                        Image.asset(
-                          "lib/assets/NITP_logo3.png",
-                          cacheHeight: 130,
-                          cacheWidth: 130,
-                        ),
-                      ],
-                    ),
-                    const Text(
-                      'Admin Login',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 30,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.symmetric(
-                      vertical: 10,
-                    ),
-                    child: TextFieldInput(
-                      textEditingController: _username,
-                      labelText: 'AdminName',
-                      textInputType: TextInputType.emailAddress,
-                    ),
-                  ),
-                  Stack(
+    return MediaQuery(
+      data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+      child: SafeArea(
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          body: Container(
+            margin: const EdgeInsets.all(10),
+            height: height,
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: height * 0.25,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      TextFieldInput(
-                        textEditingController: _password,
-                        labelText: 'PassWord',
-                        isPass: _obscureText,
-                        textInputType: TextInputType.number,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const CircleAvatar(
+                            backgroundImage:
+                                AssetImage("lib/assets/sac_nitp.jpg"),
+                            maxRadius: 65,
+                            minRadius: 20,
+                          ),
+                          Image.asset(
+                            "lib/assets/NITP_logo3.png",
+                            cacheHeight: 130,
+                            cacheWidth: 130,
+                          ),
+                        ],
                       ),
-                      Positioned(
-                        right: 10,
-                        child: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              _obscureText = !_obscureText;
-                            });
-                          },
-                          icon: (_obscureText)
-                              ? const Icon(Icons.visibility_off_outlined)
-                              : const Icon(Icons.visibility_outlined),
+                      const Text(
+                        'Admin Login',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
                         ),
                       ),
                     ],
                   ),
-                  Container(
-                    width: double.infinity,
-                    margin: const EdgeInsets.symmetric(
-                      vertical: 20,
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 5,
-                      horizontal: 10,
-                    ),
-                    child: ElevatedButton(
-                      onPressed: () async {
-                        if (_username.text.isNotEmpty &&
-                            _password.text.isNotEmpty) {
-                          final UserCredential userCredential =
-                              await _auth.signInWithEmailAndPassword(
-                            email: _username.text,
-                            password: _password.text,
-                          );
-
-                          // Check if the login was successful
-                          if (userCredential.user != null) {
-                            // ignore: use_build_context_synchronously
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const MyData(),
-                              ),
-                            );
-                          } else {
-                            // Show an error message
-                            // ignore: use_build_context_synchronously
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Invalid email or password'),
-                              ),
-                            );
-                          }
-                        }
-                      },
-                      style: const ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll(Colors.teal),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.symmetric(
+                        vertical: 10,
                       ),
-                      child: const Text('Login'),
+                      child: TextFieldInput(
+                        textEditingController: _username,
+                        labelText: 'AdminName',
+                        textInputType: TextInputType.emailAddress,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                    Stack(
+                      children: [
+                        TextFieldInput(
+                          textEditingController: _password,
+                          labelText: 'PassWord',
+                          isPass: _obscureText,
+                          textInputType: TextInputType.number,
+                        ),
+                        Positioned(
+                          right: 10,
+                          child: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _obscureText = !_obscureText;
+                              });
+                            },
+                            icon: (_obscureText)
+                                ? const Icon(Icons.visibility_off_outlined)
+                                : const Icon(Icons.visibility_outlined),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      width: double.infinity,
+                      margin: const EdgeInsets.symmetric(
+                        vertical: 20,
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 5,
+                        horizontal: 10,
+                      ),
+                      child: ElevatedButton(
+                        onPressed: () async {
+                          if (_username.text.isNotEmpty &&
+                              _password.text.isNotEmpty) {
+                            final UserCredential userCredential =
+                                await _auth.signInWithEmailAndPassword(
+                              email: _username.text,
+                              password: _password.text,
+                            );
+
+                            // Check if the login was successful
+                            if (userCredential.user != null) {
+                              // ignore: use_build_context_synchronously
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const MyData(),
+                                ),
+                              );
+                            } else {
+                              // Show an error message
+                              // ignore: use_build_context_synchronously
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Invalid email or password'),
+                                ),
+                              );
+                            }
+                          }
+                        },
+                        style: const ButtonStyle(
+                          backgroundColor:
+                              MaterialStatePropertyAll(Colors.teal),
+                        ),
+                        child: const Text('Login'),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
