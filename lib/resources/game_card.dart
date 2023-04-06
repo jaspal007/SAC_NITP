@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sac_nitp/upload_match.dart';
 import 'package:sac_nitp/info.dart';
@@ -49,18 +50,18 @@ class _MyCardState extends State<MyCard> {
         );
       },
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.9,
-        height: MediaQuery.of(context).size.height * 0.26,
-        padding: const EdgeInsets.all(10),
-        margin: const EdgeInsets.all(10),
+        width: ScreenUtil().setWidth(0.9.sw),
+        height: ScreenUtil().setHeight(0.29.sh),
+        padding: EdgeInsets.all(ScreenUtil().setWidth(10)),
+        margin: EdgeInsets.all(ScreenUtil().setWidth(10)),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(images[game]!),
             opacity: 0.4,
             fit: BoxFit.cover,
           ),
-          borderRadius: const BorderRadius.all(
-            Radius.circular(20),
+          borderRadius: BorderRadius.all(
+            Radius.circular(ScreenUtil().setWidth(20)),
           ),
           gradient: const LinearGradient(
             colors: [
@@ -88,8 +89,8 @@ class _MyCardState extends State<MyCard> {
             Text(
               game!,
               style: GoogleFonts.kanit(
-                textStyle: const TextStyle(
-                  fontSize: 38,
+                textStyle: TextStyle(
+                  fontSize: ScreenUtil().setSp(38),
                   fontWeight: FontWeight.w900,
                   color: Colors.black,
                 ),
@@ -100,8 +101,8 @@ class _MyCardState extends State<MyCard> {
             Text(
               '${team1!} v/s ${team2!}',
               style: GoogleFonts.titilliumWeb(
-                textStyle: const TextStyle(
-                  fontSize: 24,
+                textStyle: TextStyle(
+                  fontSize: ScreenUtil().setSp(24),
                   fontWeight: FontWeight.w700,
                   color: Colors.black,
                 ),
@@ -129,8 +130,8 @@ class _MyCardState extends State<MyCard> {
                         Text(
                           ' $date',
                           style: GoogleFonts.rajdhani(
-                            textStyle: const TextStyle(
-                              fontSize: 20,
+                            textStyle: TextStyle(
+                              fontSize: ScreenUtil().setSp(20),
                               fontWeight: FontWeight.w700,
                               color: Colors.black,
                             ),
@@ -154,8 +155,8 @@ class _MyCardState extends State<MyCard> {
                         Text(
                           ' $time',
                           style: GoogleFonts.rajdhani(
-                            textStyle: const TextStyle(
-                              fontSize: 20,
+                            textStyle: TextStyle(
+                              fontSize: ScreenUtil().setSp(20),
                               fontWeight: FontWeight.w700,
                               color: Colors.black,
                             ),
@@ -182,8 +183,8 @@ class _MyCardState extends State<MyCard> {
                   Text(
                     venue!,
                     style: GoogleFonts.barlowCondensed(
-                      textStyle: const TextStyle(
-                        fontSize: 30,
+                      textStyle: TextStyle(
+                        fontSize: ScreenUtil().setSp(30),
                         fontWeight: FontWeight.w600,
                         color: Colors.black,
                       ),
