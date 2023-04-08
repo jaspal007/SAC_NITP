@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:sac_nitp/contacts.dart';
 import 'resources/game_card.dart';
 import 'package:intl/intl.dart';
 import 'utility/global_variable.dart' as globals;
@@ -355,6 +356,18 @@ class _MyGameApp extends State<MyGame> {
                 ],
               );
             },
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const MyTeam(),
+                ),
+              );
+            },
+            tooltip: 'Teams',
+            child: const Icon(Icons.people_alt_outlined),
           ),
         ),
       ),

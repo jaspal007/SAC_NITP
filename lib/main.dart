@@ -7,7 +7,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:system_theme/system_theme.dart';
 import 'home.dart';
 
-
 ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
