@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'utility/global_variable.dart' as globals;
 
 globals.GlobalVariable globalVariable = globals.GlobalVariable();
-Map<String, String> coord = globalVariable.getCoordNames();
 
 class MyInfo extends StatelessWidget {
   final String game;
@@ -29,6 +28,7 @@ class MyInfo extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
+  String? coord = globalVariable.getCoordNames(game);
     final Event event = Event(
       title: game,
       description: '$team1 v/s $team2',
@@ -191,7 +191,7 @@ class MyInfo extends StatelessWidget {
                       ),
                       Text(
                         textAlign: TextAlign.center,
-                        'Coordinator: ${coord[game]}',
+                        'Coordinator: $coord',
                         style: GoogleFonts.spaceGrotesk(
                           textStyle: const TextStyle(
                             fontSize: 30,
