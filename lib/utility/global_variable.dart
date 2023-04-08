@@ -281,7 +281,7 @@ final coord = {
   'FOOTBALL': [
     {
       'Coordinator': [
-        {'Name': 'SAMEER NAUTIYAL '},
+        {'Name': 'SAMEER NAUTIYAL'},
         {'RollNum': '1910007'},
         {'Mob': '8475069744'},
         {'email': 'sameern.ug19.ph@nitp.ac.in'}
@@ -337,9 +337,9 @@ final coord = {
     },
     {
       'Member5': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
@@ -493,7 +493,6 @@ final coord = {
         {'email': 'mukuld.ug20.ce@nitp.ac.in'}
       ]
     },
-    
     {
       'Co_ordinator2': [
         {'Name': 'NITIN KUMAR'},
@@ -530,7 +529,7 @@ final coord = {
       'Member4': [
         {'Name': 'L HARSHA VARDHAN'},
         {'RollNum': '2102069'},
-        {'Mob': ''},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
@@ -546,65 +545,65 @@ final coord = {
   'KABADDI(W)': [
     {
       'Coordinator': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Co_ordinator1': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Co_ordinator2': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Member1': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Member2': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Member3': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Member4': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Member5': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
@@ -612,65 +611,65 @@ final coord = {
   'KABADDI(M)': [
     {
       'Coordinator': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Co_ordinator1': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Co_ordinator2': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Member1': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Member2': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Member3': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Member4': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Member5': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
@@ -678,65 +677,65 @@ final coord = {
   'BADMINTON': [
     {
       'Coordinator': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Co_ordinator1': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Co_ordinator2': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Member1': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Member2': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Member3': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Member4': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
     {
       'Member5': [
-        {'Name': ''},
-        {'RollNum': ''},
-        {'Mob': ''},
+        {'Name': '123'},
+        {'RollNum': '123'},
+        {'Mob': '123'},
         {'email': '@nitp.ac.in'}
       ]
     },
@@ -794,18 +793,18 @@ final teamCord = {
   'Int. MSc': [
     {
       'Coordinator': [
-        {'name': ''},
-        {'RollNo': ''},
-        {'Mob': ''},
-        {'Email': ''},
+        {'name': '123'},
+        {'RollNo': '123'},
+        {'Mob': '123'},
+        {'Email': '123'},
       ],
     },
     {
       'Co_ordinator': [
-        {'name': ''},
-        {'RollNo': ''},
-        {'Mob': ''},
-        {'Email': ''},
+        {'name': '123'},
+        {'RollNo': '123'},
+        {'Mob': '123'},
+        {'Email': '123'},
       ],
     },
   ],
@@ -830,18 +829,18 @@ final teamCord = {
   'Women': [
     {
       'Coordinator': [
-        {'name': ''},
-        {'RollNo': ''},
-        {'Mob': ''},
-        {'Email': ''},
+        {'name': '123'},
+        {'RollNo': '123'},
+        {'Mob': '123'},
+        {'Email': '123'},
       ],
     },
     {
       'Co_ordinator': [
-        {'name': ''},
-        {'RollNo': ''},
-        {'Mob': ''},
-        {'Email': ''},
+        {'name': '123'},
+        {'RollNo': '123'},
+        {'Mob': '123'},
+        {'Email': '123'},
       ],
     },
   ],
@@ -907,8 +906,19 @@ class GlobalVariable {
   Map<String, String> getImages() => games;
   final lead = coord.keys.toList(growable: false);
   getCoord() => lead;
-    String? getCoordNames(String game) => coord[game]?[0]['Coordinator']?[0]['Name'];
-    List<Map<String, List<Map<String, String>>>>? getInfo(String game)=> coord[game];
+
+  // the name of the coordinator for the given game
+  String? getCoordNames(String game) =>
+      coord[game]?[0]['Coordinator']?[0]['Name'];
+
+  //list of all the data for the given game
+  List<Map<String, List<Map<String, String>>>>? getInfo(String game) =>
+      coord[game];
+
+  //set of particular position for the given game
+  List<Map<String, String>>? getCard(String game, int idx1, String pos) =>
+      coord[game]?[idx1][pos];
+
   //void setGames(List<String>? value) => games.keys.toList() = value!;
   List<String> getTeams() => teams;
   void setTeams(List<String>? value) => teams = value!;
