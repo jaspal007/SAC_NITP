@@ -98,7 +98,7 @@ flutter:
     - lib/assets/football.jpg
     - lib/assets/kabaddi.jpg
     - lib/assets/power_sports.jpg
-    - lib/assets/sac_nitp.jpg
+    - lib/assets/sac_nitp.png
     - lib/assets/space.jpg
     - lib/assets/table_tennis.jpg
     - lib/assets/volleyball.jpg
@@ -115,3 +115,4 @@ flutter:
     - lib/assets/department/int_msc.jpg
     - lib/assets/department/mech.jpg
     - lib/assets/department/women.jpg
+    - lib/assets/medal.png

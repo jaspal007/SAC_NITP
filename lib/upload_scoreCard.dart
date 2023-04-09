@@ -1,6 +1,5 @@
 import 'dart:typed_data';
 
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:firebase_storage/firebase_storage.dart';
@@ -130,7 +129,7 @@ class _MyScoreState extends State<MyScore> {
                   : SizedBox(
                       height: 500,
                       width: 500,
-                      child: Image.asset("lib/assets/sac_nitp.jpg",
+                      child: Image.asset("lib/assets/sac_nitp.png",
                           fit: BoxFit.contain),
                     ),
               InkWell(

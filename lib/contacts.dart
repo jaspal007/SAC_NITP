@@ -50,21 +50,17 @@ class _MyTeamState extends State<MyTeam> with TickerProviderStateMixin {
         body: TabBarView(
           controller: tabController,
           children: [
-            Expanded(
-              child: ListView.builder(
-                itemCount: games.length,
-                itemBuilder: (context, index) {
-                  return MyTeamCard(game: games[index]);
-                },
-              ),
+            ListView.builder(
+              itemCount: games.length,
+              itemBuilder: (context, index) {
+                return MyTeamCard(game: games[index]);
+              },
             ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: department.length,
-                itemBuilder: (context, index) {
-                  return MyDeptCard(dept: department[index]);
-                },
-              ),
+            ListView.builder(
+              itemCount: department.length,
+              itemBuilder: (context, index) {
+                return MyDeptCard(dept: department[index]);
+              },
             ),
           ],
         ),

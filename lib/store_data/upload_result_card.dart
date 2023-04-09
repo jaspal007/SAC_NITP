@@ -9,6 +9,7 @@ class ResultCard {
   final String date;
   final String time;
   final String result;
+  final String mom;
 
   const ResultCard({
     required this.resultCardId,
@@ -18,6 +19,7 @@ class ResultCard {
     required this.date,
     required this.time,
     required this.result,
+    required this.mom,
   });
 
   Map<String, dynamic> toJson() => {
@@ -28,6 +30,7 @@ class ResultCard {
         'date': date,
         'time': time,
         'result': result,
+        'mom': mom,
       };
 
   static ResultCard fromSnap(DocumentSnapshot snap) {
@@ -41,6 +44,7 @@ class ResultCard {
       date: snapshot['date'],
       time: snapshot['time'],
       result: snapshot['result'],
+      mom: snapshot['mom']
     );
   }
 }

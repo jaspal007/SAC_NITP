@@ -48,6 +48,7 @@ class FirestoreMethods {
     String date,
     String time,
     String result,
+    String mom,
   ) async {
     String res = "Some error occurred";
     try {
@@ -61,6 +62,7 @@ class FirestoreMethods {
         date: date,
         time: time,
         result: result,
+        mom: mom,
       );
       _firestore.collection('resultCard').doc(resultCardId).set(
             resultCard.toJson(),

@@ -24,9 +24,10 @@ class _MyResCardState extends State<MyResCard> {
     String? date = widget.snap['date'];
     String? time = widget.snap['time'];
     String? result = widget.snap['result'];
+    String? mom = widget.snap['mom'];
     return Container(
       width: MediaQuery.of(context).size.width * 0.9,
-      height: MediaQuery.of(context).size.height * 0.26,
+      height: MediaQuery.of(context).size.height * 0.4,
       padding: const EdgeInsets.all(10),
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -147,18 +148,53 @@ class _MyResCardState extends State<MyResCard> {
             ),
             child: Row(
               children: [
-                const Icon(
-                  Icons.emoji_events_outlined,
-                  size: 30,
-                  color: Colors.black87,
+                Container(
+                  padding: const EdgeInsets.only(right: 5),
+                  child: const Icon(
+                    Icons.emoji_events_outlined,
+                    size: 30,
+                    color: Colors.black87,
+                  ),
                 ),
-                Text(
-                  result!,
-                  style: GoogleFonts.barlowCondensed(
-                    textStyle: const TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
+                Flexible(
+                  child: Text(
+                    result!,
+                    style: GoogleFonts.barlowCondensed(
+                      textStyle: const TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(
+              vertical: 5,
+            ),
+            child: Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(right: 5),
+                  child: Image.asset(
+                    "lib/assets/medal.png",
+                    height: 30,
+                    width: 30,
+                    alignment: Alignment.center,
+                  ),
+                ),
+                Flexible(
+                  child: Text(
+                    'Man Of The Match: ${mom!}',
+                    style: GoogleFonts.barlowCondensed(
+                      textStyle: const TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                 ),

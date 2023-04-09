@@ -28,7 +28,7 @@ class MyInfo extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-  String? coord = globalVariable.getCoordNames(game);
+    String? coord = globalVariable.getCoordNames(game);
     final Event event = Event(
       title: game,
       description: '$team1 v/s $team2',
@@ -75,7 +75,7 @@ class MyInfo extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: height - 400,
+                  height: height - 300,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -83,12 +83,14 @@ class MyInfo extends StatelessWidget {
                       //name of the game
                       Text(
                         game,
+                        textAlign: TextAlign.center,
                         style: GoogleFonts.kanit(
                           textStyle: const TextStyle(
                             fontSize: 40,
                             fontWeight: FontWeight.w900,
                           ),
                         ),
+                        maxLines: 2,
                       ),
 
                       //team 1 vs team2
@@ -123,7 +125,7 @@ class MyInfo extends StatelessWidget {
                                   style: GoogleFonts.rajdhani(
                                     textStyle: const TextStyle(
                                       fontSize: 25,
-                                      fontWeight: FontWeight.w300,
+                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ),
@@ -148,7 +150,7 @@ class MyInfo extends StatelessWidget {
                                   style: GoogleFonts.rajdhani(
                                     textStyle: const TextStyle(
                                       fontSize: 25,
-                                      fontWeight: FontWeight.w300,
+                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ),
@@ -170,23 +172,31 @@ class MyInfo extends StatelessWidget {
                               Icons.location_on_outlined,
                               size: 30,
                             ),
-                            Text(
-                              venue,
-                              style: GoogleFonts.barlowCondensed(
-                                textStyle: const TextStyle(
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.w300,
+                            Flexible(
+                              child: Text(
+                                venue,
+                                style: GoogleFonts.barlowCondensed(
+                                  textStyle: const TextStyle(
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
+                                maxLines: 2,
                               ),
                             ),
                           ],
                         ),
                       ),
-                      Text(
-                        remarks,
-                        style: const TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.w300,
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        child: Text(
+                          textAlign: TextAlign.center,
+                          remarks,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w300,
+                          ),
+                          maxLines: 2,
                         ),
                       ),
                       Text(
@@ -194,8 +204,8 @@ class MyInfo extends StatelessWidget {
                         'Coordinator: $coord',
                         style: GoogleFonts.spaceGrotesk(
                           textStyle: const TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.w600,
+                            fontSize: 25,
+                            fontWeight: FontWeight.w300,
                           ),
                         ),
                         maxLines: 2,

@@ -180,13 +180,15 @@ class _MyCardState extends State<MyCard> {
                     size: 30,
                     color: Colors.black87,
                   ),
-                  Text(
-                    venue!,
-                    style: GoogleFonts.barlowCondensed(
-                      textStyle: TextStyle(
-                        fontSize: ScreenUtil().setSp(30),
-                        fontWeight: FontWeight.w600,
-                        color: Colors.black,
+                  Flexible(
+                    child: Text(
+                      venue!,
+                      style: GoogleFonts.barlowCondensed(
+                        textStyle: TextStyle(
+                          fontSize: ScreenUtil().setSp(30),
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),

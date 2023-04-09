@@ -337,10 +337,10 @@ final coord = {
     },
     {
       'Member5': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': ' '},
+        {'RollNum': ' '},
+        {'Mob': ' '},
+        {'email': ' '}
       ]
     },
   ],
@@ -545,66 +545,66 @@ final coord = {
   'KABADDI(W)': [
     {
       'Coordinator': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'Priya Singh'},
+        {'RollNum': '2004188'},
+        {'Mob': '9119158844'},
+        {'email': 'priyas.ug20.ece@nitp.ac.in'}
       ]
     },
     {
       'Co_ordinator1': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'B Kavya Sri'},
+        {'RollNum': '2006085'},
+        {'Mob': '9440917950'},
+        {'email': 'bollinas.ug20.cse@nitp.ac.in'}
       ]
     },
     {
       'Co_ordinator2': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'Shivani Yadav'},
+        {'RollNum': '2202163'},
+        {'Mob': '7393827118'},
+        {'email': 'shivaniy.ug22.ee@nitp.ac.in'}
       ]
     },
     {
       'Member1': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'Alka Minj'},
+        {'RollNum': '2204181'},
+        {'Mob': '9508584766'},
+        {'email': 'alkam.ug22.ece@nitp.ac.in'}
       ]
     },
     {
       'Member2': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'Ragini Kumari'},
+        {'RollNum': '2201152'},
+        {'Mob': '6202684820'},
+        {'email': 'raginik.ug22.me@nitp.ac.in'}
       ]
     },
     {
       'Member3': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'Asha Kumari'},
+        {'RollNum': '2101118'},
+        {'Mob': '8294809643'},
+        {'email': 'ashak.ug21.me@nitp.ac.in'}
       ]
     },
     {
       'Member4': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': ' '},
+        {'RollNum': ' '},
+        {'Mob': ' '},
+        {'email': ' '}
       ]
     },
     {
       'Member5': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': ' '},
+        {'RollNum': ' '},
+        {'Mob': ' '},
+        {'email': ' '}
       ]
     },
   ],
@@ -685,58 +685,58 @@ final coord = {
     },
     {
       'Co_ordinator1': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'KUNAL PRAKASH'},
+        {'RollNum': '1909006'},
+        {'Mob': '8210441185'},
+        {'email': 'kunalp.ug19.ma@nitp.ac.in'}
       ]
     },
     {
       'Co_ordinator2': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'SHUBHAM RAJ'},
+        {'RollNum': '2004080'},
+        {'Mob': '9771513980'},
+        {'email': 'shubhamr.ug20.ece@nitp.ac.in'}
       ]
     },
     {
       'Member1': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'AYUSH JAIN'},
+        {'RollNum': '2104116'},
+        {'Mob': '7878301146'},
+        {'email': 'ayushj.ug21.ec@nitp.ac.in'}
       ]
     },
     {
       'Member2': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'ARYANSH GUPTA'},
+        {'RollNum': '2106079'},
+        {'Mob': '9794908245'},
+        {'email': 'aryanshg.ug21.cs@nitp.ac.in'}
       ]
     },
     {
       'Member3': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'SUMIT SINGH'},
+        {'RollNum': '2101087'},
+        {'Mob': '9520926475'},
+        {'email': 'sumits.ug21.me@nitp.ac.in'}
       ]
     },
     {
       'Member4': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'DEVRAJ KUMAR'},
+        {'RollNum': '2202025'},
+        {'Mob': '8210129260'},
+        {'email': 'devraj227804@nitp.ac.in'}
       ]
     },
     {
       'Member5': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'ROHIT KUMAR VERMA'},
+        {'RollNum': '2203020'},
+        {'Mob': '8318017035'},
+        {'email': 'rohitv.ug22.ce@nitp.ac.in'}
       ]
     },
   ],

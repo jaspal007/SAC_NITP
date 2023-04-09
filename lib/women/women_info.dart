@@ -41,32 +41,30 @@ class _WomenInfoState extends State<WomenInfo> {
           centerTitle: true,
         ),
         body: Center(
-          child: Expanded(
-            child: ListView.builder(
-              itemCount: year.length,
-              itemBuilder: (context, index) {
-                return Container(
-                  margin: const EdgeInsets.only(bottom: 10),
-                  child: Column(
-                    children: [
-                      Text(
-                        year[index],
-                        style: GoogleFonts.kanit(
-                          textStyle: const TextStyle(
-                            fontSize: 40,
-                            fontWeight: FontWeight.w900,
-                            letterSpacing: 5,
-                          ),
+          child: ListView.builder(
+            itemCount: year.length,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: const EdgeInsets.only(bottom: 10),
+                child: Column(
+                  children: [
+                    Text(
+                      year[index],
+                      style: GoogleFonts.kanit(
+                        textStyle: const TextStyle(
+                          fontSize: 40,
+                          fontWeight: FontWeight.w900,
+                          letterSpacing: 5,
                         ),
                       ),
-                      WomenYearInfo(
-                        year: courseYear[index],
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
+                    ),
+                    WomenYearInfo(
+                      year: courseYear[index],
+                    ),
+                  ],
+                ),
+              );
+            },
           ),
         ),
       ),

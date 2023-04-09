@@ -35,6 +35,7 @@ class MyResult extends StatefulWidget {
 
 class _MyResultState extends State<MyResult> {
   final TextEditingController _result = TextEditingController();
+  final TextEditingController _mOTM = TextEditingController();
   final TextEditingController _game = TextEditingController();
   final TextEditingController _team1 = TextEditingController();
   final TextEditingController _team2 = TextEditingController();
@@ -48,6 +49,7 @@ class _MyResultState extends State<MyResult> {
       dropDownValue3 = null;
       date = format.format(DateTime.now());
       _result.clear();
+      _mOTM.clear();
     });
   }
 
@@ -101,6 +103,7 @@ class _MyResultState extends State<MyResult> {
           date,
           time,
           _result.text,
+          _mOTM.text,
         );
 
         if (res == "success") {
@@ -129,6 +132,7 @@ class _MyResultState extends State<MyResult> {
       _date.dispose();
       _time.dispose();
       _result.dispose();
+      _mOTM.dispose();
     }
 
     return SafeArea(
@@ -313,6 +317,13 @@ class _MyResultState extends State<MyResult> {
                   ),
                 ),
                 Container(
+                  child: TextFieldInput(
+                    textEditingController: _mOTM,
+                    labelText: 'Man Of the Match',
+                    textInputType: TextInputType.text,
+                  ),
+                ),
+                Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -323,7 +334,8 @@ class _MyResultState extends State<MyResult> {
                               dropDownValue3!.isNotEmpty &&
                               date.isNotEmpty &&
                               time.isNotEmpty &&
-                              _result.text.isNotEmpty) {
+                              _result.text.isNotEmpty &&
+                              _mOTM.text.isNotEmpty) {
                             postResultCard();
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(

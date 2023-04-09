@@ -80,7 +80,7 @@ class MyAppState extends State<MyApp> {
                       children: const [
                         CircleAvatar(
                           backgroundImage:
-                              AssetImage("lib/assets/sac_nitp.jpg"),
+                              AssetImage("lib/assets/sac_nitp.png"),
                           maxRadius: 80,
                         ),
                       ],

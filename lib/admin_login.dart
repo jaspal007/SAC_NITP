@@ -57,7 +57,7 @@ class _AdminLoginState extends State<AdminLogin> {
                           children: [
                             const CircleAvatar(
                               backgroundImage:
-                                  AssetImage("lib/assets/sac_nitp.jpg"),
+                                  AssetImage("lib/assets/sac_nitp.png"),
                               maxRadius: 65,
                               minRadius: 20,
                             ),
@@ -101,7 +101,7 @@ class _AdminLoginState extends State<AdminLogin> {
                                 textEditingController: _password,
                                 labelText: 'PassWord',
                                 isPass: _obscureText,
-                                textInputType: TextInputType.number,
+                                textInputType: TextInputType.text,
                               ),
                               Positioned(
                                 right: 10,
