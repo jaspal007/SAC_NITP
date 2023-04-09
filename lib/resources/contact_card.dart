@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sac_nitp/utility/global_variable.dart' as globals;
@@ -38,6 +39,9 @@ class _MyContactCardState extends State<MyContactCard> {
     List<Map<String, String>>? getCard = (!widget.dept)
         ? _globalVariable.getCard(type, idx, pos)
         : _globalVariable.getDeptCard(type, idx, pos);
+
+    String mob = '${getCard?[2]['Mob']}';
+    String email = '${getCard?[3]['email']}';
     return Container(
         height: ScreenUtil().setHeight(0.2.sh),
         width: ScreenUtil().setWidth(0.8.sw),
@@ -52,15 +56,18 @@ class _MyContactCardState extends State<MyContactCard> {
                 const Icon(Icons.phone, size: 20),
                 TextButton(
                   onPressed: () async {
-                    var url = Uri.parse("tel: ${getCard?[2]['Mob']}");
-                    if (await canLaunchUrl(url)) {
-                      await launchUrl(url);
-                    } else {
-                      throw 'Could not launch $url';
-                    }
+                    Clipboard.setData(ClipboardData(text: mob)).then(
+                      (_) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text("Contact copied to clipboard"),
+                          ),
+                        );
+                      },
+                    );
                   },
                   child: Text(
-                    '${getCard?[2]['Mob']}',
+                    mob,
                     style: const TextStyle(color: Colors.teal),
                   ),
                 ),
@@ -72,18 +79,15 @@ class _MyContactCardState extends State<MyContactCard> {
                 const Icon(Icons.mail_rounded, size: 20),
                 TextButton(
                   onPressed: () async {
-                    String email =
-                        Uri.encodeComponent("mail@fluttercampus.com");
-                    String subject = Uri.encodeComponent("Hello Flutter");
-                    String body =
-                        Uri.encodeComponent("Hi! I'm Flutter Developer");
-                    var url =
-                        Uri.parse("mailto:$email?subject=$subject&body=$body");
-                    if (await canLaunchUrl(url)) {
-                      await launchUrl(url);
-                    } else {
-                      throw 'Could not launch $url';
-                    }
+                    Clipboard.setData(ClipboardData(text: email)).then(
+                      (_) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text("Email address copied to clipboard"),
+                          ),
+                        );
+                      },
+                    );
                   },
                   child: Text(
                     '${getCard?[3]['email']}',

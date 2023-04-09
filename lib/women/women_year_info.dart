@@ -36,43 +36,42 @@ class _WomenYearInfoState extends State<WomenYearInfo> {
 
     return Center(
       child: Container(
-        height: ScreenUtil().setHeight(0.7.sh),
+        height: ScreenUtil().setHeight(0.5.sh),
         width: ScreenUtil().setWidth(0.9.sw),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(year),
-            Expanded(
-              child: Container(
-                alignment: Alignment.center,
-                margin: const EdgeInsets.all(10),
-                child: ListView.builder(
-                  itemCount: position.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      padding: const EdgeInsets.all(10),
-                      child: Column(
-                        children: [
-                          Text(
-                            position[index],
-                            style: GoogleFonts.spaceGrotesk(
-                              textStyle: const TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ),
-                          WomenContactCard(
-                            year: year,
-                            index: index,
-                            pos: position[index],
-                          ),
-                        ],
-                      ),
-                    );
-                  },
+            Column(
+              children: [
+                Text(
+                  position[0],
+                  style: GoogleFonts.spaceGrotesk(
+                    textStyle: const TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
                 ),
-              ),
+                WomenContactCard(
+                  year: year,
+                  index: 0,
+                  pos: position[0],
+                ),
+                Text(
+                  position[1],
+                  style: GoogleFonts.spaceGrotesk(
+                    textStyle: const TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                ),
+                WomenContactCard(
+                  year: year,
+                  index: 1,
+                  pos: position[1],
+                ),
+              ],
             ),
           ],
         ),

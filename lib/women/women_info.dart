@@ -45,15 +45,25 @@ class _WomenInfoState extends State<WomenInfo> {
             child: ListView.builder(
               itemCount: year.length,
               itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    Text(
-                      year[index],
-                    ),
-                    WomenYearInfo(
-                      year: courseYear[index],
-                    ),
-                  ],
+                return Container(
+                  margin: const EdgeInsets.only(bottom: 10),
+                  child: Column(
+                    children: [
+                      Text(
+                        year[index],
+                        style: GoogleFonts.kanit(
+                          textStyle: const TextStyle(
+                            fontSize: 40,
+                            fontWeight: FontWeight.w900,
+                            letterSpacing: 5,
+                          ),
+                        ),
+                      ),
+                      WomenYearInfo(
+                        year: courseYear[index],
+                      ),
+                    ],
+                  ),
                 );
               },
             ),

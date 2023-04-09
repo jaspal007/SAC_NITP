@@ -134,12 +134,17 @@ class _AdminLoginState extends State<AdminLogin> {
                             onPressed: () async {
                               if (_username.text.isNotEmpty &&
                                   _password.text.isNotEmpty) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('Logging In...'),
+                                    duration: Duration(seconds: 1),
+                                  ),
+                                );
                                 final UserCredential userCredential =
                                     await _auth.signInWithEmailAndPassword(
                                   email: _username.text,
                                   password: _password.text,
                                 );
-
                                 // Check if the login was successful
                                 if (userCredential.user != null) {
                                   // ignore: use_build_context_synchronously
@@ -150,15 +155,19 @@ class _AdminLoginState extends State<AdminLogin> {
                                     ),
                                   );
                                 } else {
-                                  // Show an error message
-                                  // ignore: use_build_context_synchronously
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
-                                      content:
-                                          Text('Invalid email or password'),
+                                      content: Text('Invalid email or password'),
+                                      duration: Duration(seconds: 1),
                                     ),
                                   );
                                 }
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('Enter credentials'),
+                                  ),
+                                );
                               }
                             },
                             style: const ButtonStyle(

@@ -611,76 +611,76 @@ final coord = {
   'KABADDI(M)': [
     {
       'Coordinator': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'RAJARAM MEENA'},
+        {'RollNum': '1904123'},
+        {'Mob': '7732822079'},
+        {'email': 'rajaramm.ug19.ec@nitp.ac.in'}
       ]
     },
     {
       'Co_ordinator1': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'DHARAVATH VAMSHI NAIK'},
+        {'RollNum': '2004051'},
+        {'Mob': '7013914181'},
+        {'email': 'dharavathn.ug20.ece@nitp.ac.in'}
       ]
     },
     {
       'Co_ordinator2': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'ABHISHEK GAUTAM'},
+        {'RollNum': '2003099'},
+        {'Mob': '9568544418'},
+        {'email': 'abhishekg.ug20.ce@nitp.ac.in'}
       ]
     },
     {
       'Member1': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'AKSHAT SURYAVANSHI'},
+        {'RollNum': '2003068'},
+        {'Mob': '9838929111'},
+        {'email': 'akshats.ug20.ce@nitp.ac.in'}
       ]
     },
     {
       'Member2': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'RITIK YADAV'},
+        {'RollNum': '2206044'},
+        {'Mob': '8081258926'},
+        {'email': 'ritiky.ug22.cs@nitp.ac.in'}
       ]
     },
     {
       'Member3': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'RAJAT KUMAR'},
+        {'RollNum': '1901021'},
+        {'Mob': '9334807309'},
+        {'email': 'rajatk.ug19.me@nitp.ac.in'}
       ]
     },
     {
       'Member4': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'VIKASH KUMAR SINGH'},
+        {'RollNum': '2101068'},
+        {'Mob': '9546466348'},
+        {'email': 'vikashs.ug21.me@nitp.ac.in'}
       ]
     },
     {
       'Member5': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'MD ABDUL RAZIQUE'},
+        {'RollNum': '2204185'},
+        {'Mob': '9849345876'},
+        {'email': 'mohammadr.ug22.ec@nitp.ac.in'}
       ]
     },
   ],
   'BADMINTON': [
     {
       'Coordinator': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '@nitp.ac.in'}
+        {'Name': 'VISHAL KUMAR'},
+        {'RollNum': '2136007'},
+        {'Mob': '6299505020'},
+        {'email': 'vishalkr.pg21.me@nitp.ac.in'}
       ]
     },
     {
@@ -793,18 +793,18 @@ final teamCord = {
   'Int. MSc': [
     {
       'Coordinator': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '123'},
+        {'Name': 'PENDLI VAMSHI '},
+        {'RollNum': '1905035'},
+        {'Mob': '9553291523'},
+        {'email': 'pendliv.ug19.ar@nitp.ac.in'},
       ],
     },
     {
       'Co_ordinator': [
-        {'Name': '123'},
-        {'RollNum': '123'},
-        {'Mob': '123'},
-        {'email': '123'},
+        {'Name': 'AKSHAT MISHRA '},
+        {'RollNum': '2005043'},
+        {'Mob': '9835281214'},
+        {'email': 'mishraakshat2005043@gmail.com'},
       ],
     },
   ],
@@ -981,8 +981,6 @@ class GlobalVariable {
   Map<String, String> getImages() => games;
   Map<String, String> getDeptImages() => teams;
 
-
-
   //List of all the sports available
   List<String> getCoord() => coord.keys.toList(growable: false);
 
@@ -990,9 +988,7 @@ class GlobalVariable {
   List<String> getTeams() => teams.keys.toList(growable: false);
 
   //List of all the years available
-  List<String>getYear() => womenDept.keys.toList(growable: false);
-   
-   
+  List<String> getYear() => womenDept.keys.toList(growable: false);
 
   // the name of the coordinator for the given game
   String? getCoordNames(String game) =>
@@ -1002,18 +998,14 @@ class GlobalVariable {
   List<Map<String, List<Map<String, String>>>>? getInfo(String game) =>
       coord[game];
 
-
-  
   //List of all the positions in the department
   List<Map<String, List<Map<String, String>>>>? getDeptInfo(String dept) =>
       teamCord[dept];
-  
+
   //List of all the positions for the women for the given year
   List<Map<String, List<Map<String, String>>>>? getWomenInfo(String year) =>
       womenDept[year];
 
-
-  
   //information of a particular position holder for the given game
   List<Map<String, String>>? getCard(String game, int idx1, String pos) =>
       coord[game]?[idx1][pos];
@@ -1025,8 +1017,4 @@ class GlobalVariable {
   //information of a particular position holder for the given year
   List<Map<String, String>>? getWomenCard(String year, int idx1, String pos) =>
       womenDept[year]?[idx1][pos];
-
-
-
-
 }
