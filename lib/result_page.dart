@@ -97,6 +97,11 @@ class _MyResHomeApp extends State<MyResHome> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final mainScreen = MediaQuery.of(context).size.height;
     final height = mainScreen - MediaQuery.of(context).padding.bottom;

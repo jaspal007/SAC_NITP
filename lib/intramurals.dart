@@ -358,6 +358,7 @@ class _MyGameApp extends State<MyGame> {
             },
           ),
           floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.teal,
             onPressed: () {
               Navigator.push(
                 context,
@@ -367,7 +368,9 @@ class _MyGameApp extends State<MyGame> {
               );
             },
             tooltip: 'Teams',
-            child: const Icon(Icons.people_alt_outlined),
+            child: const Icon(
+              Icons.people_alt_outlined,
+            ),
           ),
         ),
       ),

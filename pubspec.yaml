@@ -38,6 +38,7 @@ dependencies:
   firebase_storage: ^11.1.0
   flutter:
     sdk: flutter
+  flutter_phone_direct_caller: ^2.1.1
   flutter_screenutil: ^5.7.0
   google_fonts: ^4.0.3
   image_picker: ^0.8.7+1
@@ -106,3 +107,11 @@ flutter:
     - lib/assets/medal_logo.png
     - lib/assets/NITP_logo3.png
     - lib/assets/Intramural_medal.png
+    - lib/assets/department/arch.jpg
+    - lib/assets/department/civil.jpg
+    - lib/assets/department/cse.jpg
+    - lib/assets/department/ece.jpg
+    - lib/assets/department/ee.jpg
+    - lib/assets/department/int_msc.jpg
+    - lib/assets/department/mech.jpg
+    - lib/assets/department/women.jpg

@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sac_nitp/team_info.dart';
+import 'package:sac_nitp/dept_info.dart';
 import 'package:sac_nitp/utility/global_variable.dart' as globals;
+import 'package:sac_nitp/women/women_info.dart';
 
 globals.GlobalVariable _globalVariable = globals.GlobalVariable();
-Map<String, String> images = _globalVariable.getImages();
+Map<String, String> images = _globalVariable.getDeptImages();
 
-class MyTeamCard extends StatefulWidget {
-  final String game;
-  const MyTeamCard({
+class MyDeptCard extends StatefulWidget {
+  final String dept;
+  const MyDeptCard({
     super.key,
-    required this.game,
-    
+    required this.dept,
   });
 
   @override
-  State<MyTeamCard> createState() => _MyTeamCardState();
+  State<MyDeptCard> createState() => _MyDeptCardState();
 }
 
-class _MyTeamCardState extends State<MyTeamCard> {
+class _MyDeptCardState extends State<MyDeptCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -27,7 +27,9 @@ class _MyTeamCardState extends State<MyTeamCard> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => TeamInfo(game: widget.game),
+            builder: (context) => (widget.dept == 'Women')
+                ? const WomenInfo()
+                : DeptInfo(dept: widget.dept),
           ),
         );
       },
@@ -38,7 +40,7 @@ class _MyTeamCardState extends State<MyTeamCard> {
         margin: EdgeInsets.all(ScreenUtil().setWidth(10)),
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(images[widget.game]!),
+            image: AssetImage(images[widget.dept]!),
             opacity: 0.4,
             fit: BoxFit.cover,
           ),
@@ -64,7 +66,7 @@ class _MyTeamCardState extends State<MyTeamCard> {
         ),
         child: Center(
           child: Text(
-            widget.game,
+            widget.dept,
             style: GoogleFonts.kanit(
               textStyle: TextStyle(
                 fontSize: ScreenUtil().setSp(38),

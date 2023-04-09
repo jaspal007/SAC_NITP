@@ -742,159 +742,234 @@ final coord = {
   ],
 };
 
-List<String> teams = <String>[
-  'CSE',
-  'Arch',
-  'Int. MSc',
-  'Civil',
-  'Women',
-  'Mech',
-  'EE',
-  'ECE',
-];
+Map<String, String> teams = <String, String>{
+  'CSE': 'lib/assets/department/cse.jpg',
+  'Arch': 'lib/assets/department/arch.jpg',
+  'Int. MSc': 'lib/assets/department/int_msc.jpg',
+  'Civil': 'lib/assets/department/civil.jpg',
+  'Women': 'lib/assets/department/women.jpg',
+  'Mech': 'lib/assets/department/mech.jpg',
+  'EE': 'lib/assets/department/ee.jpg',
+  'ECE': 'lib/assets/department/ece.jpg',
+};
 
 final teamCord = {
   'CSE': [
     {
       'Coordinator': [
-        {'name': 'AADITYA RAJ'},
-        {'RollNo': '2006165'},
+        {'Name': 'AADITYA RAJ'},
+        {'RollNum': '2006165'},
         {'Mob': '7742538482'},
-        {'Email': 'aadityar.ug20.cse@nitp.ac.in'},
+        {'email': 'aadityar.ug20.cse@nitp.ac.in'},
       ],
     },
     {
       'Co_ordinator': [
-        {'name': 'RAJNEESH YADAV '},
-        {'RollNo': '2006049'},
+        {'Name': 'RAJNEESH YADAV '},
+        {'RollNum': '2006049'},
         {'Mob': '9057521568'},
-        {'Email': 'yadavd.ug20.cse@nitp.ac.in'},
+        {'email': 'yadavd.ug20.cse@nitp.ac.in'},
       ],
     },
   ],
   'Arch': [
     {
       'Coordinator': [
-        {'name': 'PENDLI VAMSHI '},
-        {'RollNo': '1905035'},
+        {'Name': 'PENDLI VAMSHI '},
+        {'RollNum': '1905035'},
         {'Mob': '9553291523'},
-        {'Email': 'pendliv.ug19.ar@nitp.ac.in'},
+        {'email': 'pendliv.ug19.ar@nitp.ac.in'},
       ],
     },
     {
       'Co_ordinator': [
-        {'name': 'AKSHAT MISHRA '},
-        {'RollNo': '2005043'},
+        {'Name': 'AKSHAT MISHRA '},
+        {'RollNum': '2005043'},
         {'Mob': '9835281214'},
-        {'Email': 'mishraakshat2005043@gmail.com'},
+        {'email': 'mishraakshat2005043@gmail.com'},
       ],
     },
   ],
   'Int. MSc': [
     {
       'Coordinator': [
-        {'name': '123'},
-        {'RollNo': '123'},
+        {'Name': '123'},
+        {'RollNum': '123'},
         {'Mob': '123'},
-        {'Email': '123'},
+        {'email': '123'},
       ],
     },
     {
       'Co_ordinator': [
-        {'name': '123'},
-        {'RollNo': '123'},
+        {'Name': '123'},
+        {'RollNum': '123'},
         {'Mob': '123'},
-        {'Email': '123'},
+        {'email': '123'},
       ],
     },
   ],
   'Civil': [
     {
       'Coordinator': [
-        {'name': 'RISHU KUMAR RANJAN'},
-        {'RollNo': '1903085'},
+        {'Name': 'RISHU KUMAR RANJAN'},
+        {'RollNum': '1903085'},
         {'Mob': '7654291621'},
-        {'Email': 'rishur.ug19.ce@nitp.ac.in'},
+        {'email': 'rishur.ug19.ce@nitp.ac.in'},
       ],
     },
     {
       'Co_ordinator': [
-        {'name': 'KAMLESH KUMAR'},
-        {'RollNo': '2003097'},
+        {'Name': 'KAMLESH KUMAR'},
+        {'RollNum': '2003097'},
         {'Mob': '9117201030'},
-        {'Email': 'kamleshk.ug20.ce@nitp.ac.in'},
+        {'email': 'kamleshk.ug20.ce@nitp.ac.in'},
       ],
     },
   ],
   'Women': [
     {
       'Coordinator': [
-        {'name': '123'},
-        {'RollNo': '123'},
+        {'Name': '123'},
+        {'RollNum': '123'},
         {'Mob': '123'},
-        {'Email': '123'},
+        {'email': '123'},
       ],
     },
     {
       'Co_ordinator': [
-        {'name': '123'},
-        {'RollNo': '123'},
+        {'Name': '123'},
+        {'RollNum': '123'},
         {'Mob': '123'},
-        {'Email': '123'},
+        {'email': '123'},
       ],
     },
   ],
   'Mech': [
     {
       'Coordinator': [
-        {'name': 'Kumar Harshit '},
-        {'RollNo': '1901008'},
+        {'Name': 'Kumar Harshit '},
+        {'RollNum': '1901008'},
         {'Mob': '7061144287'},
-        {'Email': 'kumarh.ug19.me@nitp.ac.in'},
+        {'email': 'kumarh.ug19.me@nitp.ac.in'},
       ],
     },
     {
       'Co_ordinator': [
-        {'name': 'kandula manikanta reddy '},
-        {'RollNo': '2001049'},
+        {'Name': 'kandula manikanta reddy '},
+        {'RollNum': '2001049'},
         {'Mob': '9666986795'},
-        {'Email': 'kandular.ug20.me@nitp.ac.in'},
+        {'email': 'kandular.ug20.me@nitp.ac.in'},
       ],
     },
   ],
   'EE': [
     {
       'Coordinator': [
-        {'name': 'Raj Aryan'},
-        {'RollNo': '2002072'},
+        {'Name': 'Raj Aryan'},
+        {'RollNum': '2002072'},
         {'Mob': '7631253783'},
-        {'Email': 'raja.ug20.ee@nitp.ac.in'},
+        {'email': 'raja.ug20.ee@nitp.ac.in'},
       ],
     },
     {
       'Co_ordinator': [
-        {'name': 'Robin kumar mondal'},
-        {'RollNo': '2002005'},
+        {'Name': 'Robin kumar mondal'},
+        {'RollNum': '2002005'},
         {'Mob': '9162900727'},
-        {'Email': 'robinm.ug20.ee@nitp.ac.in'},
+        {'email': 'robinm.ug20.ee@nitp.ac.in'},
       ],
     },
   ],
   'ECE': [
     {
       'Coordinator': [
-        {'name': 'Ritik Singh'},
-        {'RollNo': '1904052'},
+        {'Name': 'Ritik Singh'},
+        {'RollNum': '1904052'},
         {'Mob': '9140618039'},
-        {'Email': 'ritiks.ug19.ec@nitp.ac.in'},
+        {'email': 'ritiks.ug19.ec@nitp.ac.in'},
       ],
     },
     {
       'Co_ordinator': [
-        {'name': 'Vipeen Kumar Singh '},
-        {'RollNo': '1904110'},
+        {'Name': 'Vipeen Kumar Singh '},
+        {'RollNum': '1904110'},
         {'Mob': '7688998739'},
-        {'Email': 'vipeens.ug19.ec@nitp.ac.in'},
+        {'email': 'vipeens.ug19.ec@nitp.ac.in'},
+      ],
+    },
+  ],
+};
+
+final womenDept = {
+  '4th Year': [
+    {
+      'Coordinator': [
+        {'Name': 'Deeplaxmi'},
+        {'RollNum': '1905001'},
+        {'Mob': '9334393625'},
+        {'email': 'deeplaxmi.ug19.ar@nitp.ac.in'},
+      ],
+    },
+    {
+      'Co_ordinator': [
+        {'Name': 'Navamani Akshaya P'},
+        {'RollNum': '1905012'},
+        {'Mob': '6380463976'},
+        {'email': 'navamanip.ug19.ar@nitp.ac.in'},
+      ],
+    },
+  ],
+  '3rd Year': [
+    {
+      'Coordinator': [
+        {'Name': 'Priya Singh'},
+        {'RollNum': '2004188'},
+        {'Mob': '9119158844'},
+        {'email': 'priyas.ug20.ece@nitp.ac.in'},
+      ],
+    },
+    {
+      'Co_ordinator': [
+        {'Name': 'B Kavyasri'},
+        {'RollNum': '2006085'},
+        {'Mob': '9440917950'},
+        {'email': 'bollinas.ug20.cse@nitp.ac.in'},
+      ],
+    },
+  ],
+  '2nd Year': [
+    {
+      'Coordinator': [
+        {'Name': 'Shivangi Singh'},
+        {'RollNum': '2102018'},
+        {'Mob': '9110965672'},
+        {'email': 'shivangis.ug21.ee@nitp.ac.in'},
+      ],
+    },
+    {
+      'Co_ordinator': [
+        {'Name': 'Anshupriya'},
+        {'RollNum': '2101133'},
+        {'Mob': '7970865985'},
+        {'email': 'anshupriya.ug21.me@nitp.ac.in'},
+      ],
+    },
+  ],
+  '1st Year': [
+    {
+      'Coordinator': [
+        {'Name': 'Ragini Kumari'},
+        {'RollNum': '2201152'},
+        {'Mob': '6202684820'},
+        {'email': 'ragnik.ug22.me@nitp.ac.in'},
+      ],
+    },
+    {
+      'Co_ordinator': [
+        {'Name': 'Shivani Yadav'},
+        {'RollNum': '2202163'},
+        {'Mob': '7393827118'},
+        {'email': 'shivaniy.ug22.ee@nitp.ac.in'},
       ],
     },
   ],
@@ -904,8 +979,20 @@ class GlobalVariable {
   final sports = games.keys.toList(growable: false);
   getGames() => sports;
   Map<String, String> getImages() => games;
-  final lead = coord.keys.toList(growable: false);
-  getCoord() => lead;
+  Map<String, String> getDeptImages() => teams;
+
+
+
+  //List of all the sports available
+  List<String> getCoord() => coord.keys.toList(growable: false);
+
+  //List of all the departments available
+  List<String> getTeams() => teams.keys.toList(growable: false);
+
+  //List of all the years available
+  List<String>getYear() => womenDept.keys.toList(growable: false);
+   
+   
 
   // the name of the coordinator for the given game
   String? getCoordNames(String game) =>
@@ -915,11 +1002,31 @@ class GlobalVariable {
   List<Map<String, List<Map<String, String>>>>? getInfo(String game) =>
       coord[game];
 
-  //set of particular position for the given game
+
+  
+  //List of all the positions in the department
+  List<Map<String, List<Map<String, String>>>>? getDeptInfo(String dept) =>
+      teamCord[dept];
+  
+  //List of all the positions for the women for the given year
+  List<Map<String, List<Map<String, String>>>>? getWomenInfo(String year) =>
+      womenDept[year];
+
+
+  
+  //information of a particular position holder for the given game
   List<Map<String, String>>? getCard(String game, int idx1, String pos) =>
       coord[game]?[idx1][pos];
 
-  //void setGames(List<String>? value) => games.keys.toList() = value!;
-  List<String> getTeams() => teams;
-  void setTeams(List<String>? value) => teams = value!;
+  //information of a particular position holder for the given department
+  List<Map<String, String>>? getDeptCard(String game, int idx1, String pos) =>
+      teamCord[game]?[idx1][pos];
+
+  //information of a particular position holder for the given year
+  List<Map<String, String>>? getWomenCard(String year, int idx1, String pos) =>
+      womenDept[year]?[idx1][pos];
+
+
+
+
 }

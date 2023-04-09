@@ -78,7 +78,7 @@ class _TeamInfoState extends State<TeamInfo> {
                               ),
                             ),
                             MyContactCard(
-                              game: sports,
+                              type: sports,
                               index: index,
                               pos: position[index],
                             ),

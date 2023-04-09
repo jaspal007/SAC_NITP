@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sac_nitp/resources/dept_info_card.dart';
 import 'package:sac_nitp/resources/team_info_card.dart';
 import 'utility/global_variable.dart' as globals;
 
 globals.GlobalVariable _globalVariable = globals.GlobalVariable();
-List<String> games = _globalVariable.lead;
+List<String> games = _globalVariable.getCoord();
+List<String> department = _globalVariable.getTeams();
 
 class MyTeam extends StatefulWidget {
   const MyTeam({super.key});
@@ -56,8 +58,13 @@ class _MyTeamState extends State<MyTeam> with TickerProviderStateMixin {
                 },
               ),
             ),
-            const Center(
-              child: Text('Department'),
+            Expanded(
+              child: ListView.builder(
+                itemCount: department.length,
+                itemBuilder: (context, index) {
+                  return MyDeptCard(dept: department[index]);
+                },
+              ),
             ),
           ],
         ),
